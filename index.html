@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Parnia — Portfolio</title>
+  <link rel="stylesheet" href="./style.css" />
+
+  <!-- page-local helpers for the RBDS section -->
+  <style>
+    .bullets{ margin:8px 0 0; padding-left:18px; }
+    .bullets li { margin:4px 0; color: var(--fg); }
+    .kv{ display:grid; gap:16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .content--narrow{ max-width:980px; margin:0 auto; } /* keep same visual width as home */
+  </style>
+</head>
+<body>
+  <!-- background layers -->
+  <div id="bg-gradient" aria-hidden="true"></div>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  
+
+  <div class="wrap">
+    <!-- top bar -->
+  <header class="topbar">
+  <div class="logo">~/parnia@dev</div>
+  <nav class="nav">
+    <a href="intro.html" class="nav-link">Home</a>
+    <a href="index.html" class="nav-link">Projects</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+  </nav>
+  <div class="controls">
+    <button class="icon" id="bgToggle" title="Toggle background">🌌</button>
+    <button class="icon" id="themeToggle" title="Toggle theme">🌓</button>
+  </div>
+</header>
+
+
+    <!-- WINDOW 1: hero + projects -->
+    <main class="window" role="region" aria-label="Portfolio terminal window">
+      <div class="win-top">
+        <div class="dots" aria-hidden="true">
+        </div>
+        <div style="width:40px"></div>
+      </div>
+
+      <div class="content">
+        <h1 id="typewriter" aria-label="Intro heading"></h1>
+        <h1 class="type-once" data-no-type>Software Engineer · Product · ML-curious </h1>
+
+        <p class="lead">
+          I like to turn ideas into code and code into products. Always curious about what’s under the hood!
+        </p>
+
+        <div class="stack">
+          <span class="badge">Python</span>
+          <span class="badge">FastAPI</span>
+          <span class="badge">React</span>
+          <span class="badge">SQLModel</span>
+        </div>
+
+        <section aria-label="Projects">
+          <div class="grid">
+            <article class="card">
+              <h3>CycloScope</h3>
+              <div class="meta">A retro-styled web app that measures and visualizes the cyclomatic complexity.</div>
+              <code>Stack: FastAPI · Radon · React · Vite</code>
+              <div class="links">
+                <a class="a-btn" href="https://github.com/parniayzdin/code-dashboard" target="_blank" rel="noreferrer">⟠ GitHub</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <h3>QueueLens</h3>
+              <div class="meta">Crowd-sourced web app that lets users view real-time queue wait times.</div>
+              <code>Stack: FastAPI · React-Leaflet · REST</code>
+              <div class="links">
+                <a class="a-btn" href="https://github.com/parniayzdin/Queuelens" target="_blank" rel="noreferrer">⟠ GitHub</a>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+      
+    </main>
+
+    <!-- WINDOW 2: robotic project info (same frame style) -->
+    <section class="window" role="region" aria-label="RBDS window" style="margin-top:24px">
+      <div class="win-top">
+        
+        <div class="dots" aria-hidden="true">
+        </div>
+        <div style="width:40px"></div>
+      </div>
+
+      <div class="content content--narrow">
+        <span class="kicker">MakeUoft Hackathon, Feb 15-16/2024</span>
+        <h1>Robotic Baggage Delivery System</h1>
+        <p class="lead">
+          As part of Canada’s largest hardware hackathon, we were tasked with designing a complete system to check in passengers and transport luggage from a conveyor belt to an airplane cargo platform. 
+        </p>
+
+        <div class="kv">
+          <div class="card">
+            <h3>Goals</h3>
+            <ul class="bullets">
+              <li>Accurate hand-off between platforms</li>
+              <li>Validate passenger eligibility via barcode</li>
+              <li>Meet cost/weight constraints</li>
+            </ul>
+            
+
+          </div>
+          
+          <div class="card">
+            <h3>Outcomes</h3>
+            <ul class="bullets">
+              <li>Consistent transfer with sensor feedback</li>
+              <li>GUI check-in flow with data validation</li>
+              <li>Modular parts validated via CAD & drawings</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <section class="h-gallery" id="project-media" aria-label="Project photos">
+        
+  <div class="h-rail">
+    <figure class="h-item">
+      <img src="imgrbds.png" alt="Barcode validation UI">
+    </figure>
+    <figure class="h-item">
+      <img src="imgrbds2.jpg" alt="Barcode validation UI" loading="lazy" decoding="async">
+    </figure>
+    <figure class="h-item">
+      <img src="imgrbds-2.jpg" alt="Barcode validation UI" loading="lazy" decoding="async">
+    </figure>
+    
+    
+    
+  </div>
+
+</section>
+
+
+
+    </section>
+    
+      <!-- Project Section -->
+       <section class="window" role="region" aria-label="RBDS window" style="margin-top:24px">
+      <div class="win-top">
+        <div class="dots" aria-hidden="true">
+        </div>
+        <div style="width:40px"></div>
+      </div>
+
+      <div class="content content--narrow">
+        <span class="kicker">McMaster Design League Club</span>
+        <h1>Assistive Kitchen Tool</h1>
+        <p class="lead">
+          This project was developed as part of a design challenge hosted by the 
+    McMaster Design League. Our team designed a modular kitchen tray with 
+    interchangeable attachments to support food preparation for clients with 
+    dual sensory impairments.
+        </p>
+
+        <div class="kv">
+          <div class="card">
+            <h3>Goals</h3>
+            <ul class="bullets">
+              <li>Cut variety of produce efficiently</li>
+      <li>Ensure ease of use and safety</li>
+      <li>Must withstand temperatures up to 40°C</li>
+            </ul>
+            
+
+          </div>
+          
+          <div class="card">
+            <h3>Outcomes</h3>
+            <ul class="bullets">
+              <li>tested blade attachments under low-vision simulations</li>
+              <li>Tracked fabrication costs and material usage</li>
+              <li>Recorded user feedback for design refinements</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="h-rail">
+    <figure class="h-item">
+      <img src="image-2.png" alt="Barcode validation UI" loading="lazy" decoding="async">
+    </figure>
+    <figure class="h-item">
+      <img src="image-1.png" alt="Barcode validation UI" loading="lazy" decoding="async">
+    </figure>
+    
+    <figure class="h-item">
+      <img src="image-3.png" alt="Barcode validation UI" loading="lazy" decoding="async">
+    </figure>
+    
+    
+  </div>
+
+    </section>
+
+
+  
+<script>
+function openTab(evt, tabId) {
+  const contents = document.querySelectorAll(".tab-content");
+  const buttons = document.querySelectorAll(".tab-button");
+
+  contents.forEach(c => c.classList.remove("active"));
+  buttons.forEach(b => b.classList.remove("active"));
+
+  document.getElementById(tabId).classList.add("active");
+  evt.currentTarget.classList.add("active");
+}
+</script>
+
+
+
+    <footer>© <span id="year"></span> Parnia — Built with love❤️</footer>
+  </div>
+
+  <script defer src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Parnia — Contact</title>
+  <link rel="stylesheet" href="./style.css" />
+  
+
+  <!-- Page-local tweaks -->
+  <style>
+    /* Contact page CTA colors */
+:root {                /* dark mode */
+  --cta-bg: #898f71;   /* soft matcha */
+  --cta-fg: #ffffff;   /* dark text for contrast */
+}
+:root.light {          /* light mode */
+  --cta-bg: #c2d7bc;   /* deep green */
+  --cta-fg: #1e2d20;   /* white text */
+}
+
+/* override the default button just on this page */
+/* Contact page buttons */
+.contact .btn {
+  background: transparent;      /* no background */
+  color: var(--fg);             /* normal text color */
+  border: var(--border);        /* subtle outline */
+  transition: all 0.2s ease;
+}
+
+/* Hover effect — outline + accent color */
+.contact .btn:hover {
+  background: transparent;      
+  border-color: var(--accent);  /* border turns green */
+  color: var(--accent);         /* text turns green */
+}
+
+/* Special style only for the "Send via Email" button */
+.btn-send {
+  appearance: none;
+  border-radius: 999px;
+  padding: 10px 16px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+
+  background-color: #74886d; /* filled look */
+  color: #3f533b;
+  border: 2px solid transparent;
+  transition: all 0.25s ease;
+}
+
+/* Hover effect */
+.btn-send:hover {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+
+
+    body.contact{
+      --paper: linear-gradient(180deg, var(--panel), var(--panel-2));
+    }
+
+    /* Section heading */
+    .contact-title{
+      margin: 6px 0 14px;
+      font-size: clamp(36px, 6vw, 72px);
+      letter-spacing: .02em;
+    }
+
+    /* Form + inputs styled to your theme */
+    .form-card{
+      background: var(--paper);
+      border: var(--border);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      padding: 16px;
+    }
+    .field{ margin: 10px 0 12px; }
+    .field label{
+      display:block; font-size:13px; color:var(--muted); margin-bottom:6px;
+    }
+    .input, .textarea{
+      width:100%; border:var(--border); border-radius:10px;
+      background: color-mix(in oklab, var(--panel), white 6%);
+      color: var(--fg);
+      padding: 10px 12px; outline:none;
+    }
+    .textarea{ min-height: 140px; resize: vertical; }
+
+    .btn-row{ display:flex; gap:10px; align-items:center; margin-top:6px; }
+    .btn{
+      appearance:none; border:var(--border); border-radius:999px;
+      padding:10px 14px; background:var(--panel-2); color:var(--fg);
+      cursor:pointer; box-shadow:var(--shadow);
+    }
+    .btn.primary{ background: var(--accent); color:#fff; border-color: transparent; }
+    .btn:disabled{ opacity:.6; cursor:not-allowed; }
+
+    /* Right column “cards” */
+    .contact-card{
+      background: var(--paper);
+      border: var(--border);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      padding: 14px;
+    }
+    .contact-card .meta{ color:var(--muted); font-size:12px; margin-bottom:8px; }
+    .row{ display:flex; gap:10px; flex-wrap:wrap; }
+
+    /* Keep layout width similar to other pages */
+    .content--center{ max-width: 1020px; margin: 0 auto; }
+    /* put this NEAR THE BOTTOM of the <style> block so nothing overrides it */
+body.contact .btn-send{
+  appearance: none;
+  border-radius: 999px;
+  padding: 10px 16px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+
+  background: var(--cta-bg);   /* ✅ uses theme variable */
+  color: var(--cta-fg);        /* ✅ uses theme variable */
+  border: 2px solid transparent;
+  transition: all .25s ease;
+}
+body.contact .btn-send:hover{
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+  </style>
+</head>
+
+<body class="contact">
+  <!-- background layers -->
+  <div id="bg-gradient" aria-hidden="true"></div>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <div id="sky-bg" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <!-- top nav -->
+    <header class="topbar">
+      <div class="logo">~/parnia@dev</div>
+      <nav class="nav">
+        <a href="intro.html" class="nav-link">Home</a>
+        <a href="index.html" class="nav-link">Projects</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+      </nav>
+      <div class="controls">
+        <button class="icon" id="themeToggle" title="Toggle theme">🌓</button>
+      </div>
+    </header>
+
+    <!-- terminal-style window -->
+    <main class="window" role="region" aria-label="Contact window">
+      <div class="win-top">
+        <div class="dots" aria-hidden="true">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+        </div>
+        <div class="path">parnia@dev: ~/contact</div>
+        <div style="width:40px"></div>
+      </div>
+
+      <div class="content content--center">
+        <h1 class="contact-title">Contact</h1>
+        <p class="lead">Hi! I’m always down to chat ideas, collabs, or simply to say hi. Shoot me an Email. ☕🌿</p>
+
+        <!-- two-column layout using your .grid -->
+        <div class="grid" style="margin-top:14px">
+          <!-- LEFT: form -->
+          <section class="form-card">
+            <h3 style="margin:0 0 8px">Send a message</h3>
+            <form id="contactForm" novalidate>
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" class="input" name="name" autocomplete="name" />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" class="input" type="email" name="email" autocomplete="email" />
+              </div>
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea id="message" class="textarea" name="message" placeholder="Write a few lines…"></textarea>
+              </div>
+              <div class="btn-row">
+                <button type="submit" class="btn-send">✉️ Send via Email</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="contact-card">
+            <h3 style="margin:0 0 8px">Direct</h3>
+            <div class="meta">Email</div>
+            <code id="emailText">pari.yazdinia@gmail.com</code>
+            <div class="row" style="margin-top:8px">
+              <button class="btn" id="copyEmail">📋 Copy</button>
+              <a class="btn" href="mailto:pari.yazdinia@gmail.com?subject=Hello%20from%20your%20site">✉️ Email</a>
+            </div>
+
+            <h3 style="margin:16px 0 8px">Links</h3>
+            <div class="row">
+              <a class="btn" href="https://github.com/parniayzdin" target="_blank" rel="noreferrer">🐙 GitHub</a>
+              <a class="btn" href="https://www.linkedin.com/in/parnia-yazdinia-983703214/" target="_blank" rel="noreferrer">💼 LinkedIn</a>
+              <a class="btn" href="resume.pdf" target="_blank" rel="noreferrer">📄 Resume</a>
+            </div>
+
+            <h3 style="margin:16px 0 8px">Elsewhere</h3>
+            <p class="muted" style="margin:0">Based in Ontario. Open to remote/hybrid.</p>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer>© <span id="year"></span> Parnia — Built with love❤️</footer>
+  </div>
+
+  <script defer src="./script.js"></script>
+
+  <!-- page-local JS for copy + mailto form -->
+  <script>
+  (function () {
+    const btn = document.getElementById('copyEmail');
+    const textEl = document.getElementById('emailText');
+    if (!btn || !textEl) return;
+
+    async function copy(text) {
+      try {
+        // Preferred API (requires https or localhost)
+        await navigator.clipboard.writeText(text);
+        return true;
+      } catch {
+        // Fallback for file:// or blocked clipboard
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        const ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+        return ok;
+      }
+    }
+
+    btn.addEventListener('click', async () => {
+      const ok = await copy(textEl.textContent.trim());
+      if (ok) {
+        btn.textContent = '✅ Copied';
+        setTimeout(() => (btn.textContent = '📋 Copy'), 1200);
+      } else {
+        alert('Copy failed — long‑press or highlight to copy manually.');
+      }
+    });
+  })();
+</script>
+
+
+</body>
+</html>

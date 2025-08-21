@@ -1,0 +1,537 @@
+/* Dark Matcha Mode */
+:root {
+  --bg: #1f2d24;        /* deep green background */
+  --panel: #667e6f;     /* panels slightly lighter */
+  --panel-2: #898f71;   /* secondary layer */
+  --fg: #e6f0e2;        /* light text */
+  --muted: #9bb29f;     /* muted sage green */
+  --accent: #d4d6ca;    /* matcha highlight */
+  --accent-2: #a5c997;  /* soft pistachio */
+  --border: 1px solid #3f5547;
+  --shadow: 0 10px 30px rgba(37, 36, 36, 0.4);
+}
+
+/* Light Matcha Mode */
+:root.light {
+  --bg: #e6f0e2;        /* pale matcha */
+  --panel: #c2d7bc;
+  --panel-2: #c2d7bc;
+  --fg: #1e2d20;        /* dark green text */
+  --muted: #4e5e50;     /* olive muted */
+  --accent: #232d14;    /* deep green accent */
+  --accent-3: #232d14;
+  --accent-2: #b6cf8e;  /* pistachio highlight */
+  --border: 1px solid #718578;
+  --shadow: 0 10px 30px rgba(0,0,0,.15);
+}
+
+/* Placeholder text color */
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted);   /* use your muted sage green */
+  opacity: 1;            /* ensure it's visible */
+}
+
+/* In dark mode */
+:root:not(.light) input::placeholder,
+:root:not(.light) textarea::placeholder {
+  color: color-mix(in srgb, var(--fg), white 40%); /* lighter than fg for contrast */
+}
+
+/* In light mode */
+:root.light input::placeholder,
+:root.light textarea::placeholder {
+  color: color-mix(in srgb, var(--fg), rgb(31, 62, 22) 40%); /* slightly darker for readability */
+}
+
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  color: var(--fg);
+  background: var(--bg);
+  font: 16px/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+
+/* Background Gradient */
+#bg-gradient {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: linear-gradient(120deg, #95a88d, #7e8e78, #95a88d); /* all matcha colors */
+  background-size: 200% 200%;
+  animation: gradShift 18s ease infinite;
+}
+img.green-tint {
+  filter: hue-rotate(80deg) saturate(120%);
+}
+
+.hero-img {
+  width: 100%;
+  border-radius: 12px;
+  border: var(--border);
+  box-shadow: var(--shadow);
+  margin: 20px 0;
+}
+
+@keyframes gradShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+#bg-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  display: block;
+}
+@media (prefers-reduced-motion: reduce) { #bg-gradient { animation: none; } }
+
+.wrap { max-width: 1080px; margin: 0 auto; padding: clamp(16px, 2.5vw, 32px); }
+
+header { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin: 8px 0 18px; }
+.brand { color: var(--muted); font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
+.controls { display: flex; gap: 8px; align-items: center; }
+
+button.icon {
+  appearance: none;
+  border: var(--border);
+  background: var(--panel);
+  color: var(--fg);
+  padding: 8px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+button.icon:hover { transform: translateY(-1px); }
+button.icon:active { transform: translateY(0); }
+
+
+
+/* Top Navigation */
+.topbar {
+  position: sticky;
+  top: 10px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 14px;
+  background: linear-gradient(90deg, var(--panel), var(--panel-2));
+  border: var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+.logo { color: var(--muted); letter-spacing: .08em; text-transform: uppercase; font-size: 14px; }
+
+.nav { display: flex; gap: 24px; align-items: center; }
+.nav-link {
+  text-decoration: none;
+  color: var(--muted);
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+.nav-link:hover { color: var(--fg); background: rgba(255,255,255,.4); }
+.nav-link.active { color: var(--fg); background: rgba(255,255,255,.5); }
+
+.about-card { background: var(--panel); border: var(--border); }
+
+/* Dark Theme About Card */
+:root:not(.light) .about-card {
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--panel), white 6%),
+    color-mix(in oklab, var(--panel-2), white 4%)
+  );
+  border: 1px solid color-mix(in oklab, var(--fg), var(--bg) 88%);
+}
+
+/* Hero Image Section */
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 18px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+@media (max-width: 900px) { .hero { grid-template-columns: 1fr; } }
+
+.anime-hero {
+  border: var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: var(--panel);
+}
+.anime-hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 3 / 4;
+  object-position: 50% 35%;
+}
+
+/* Light Theme About Card */
+:root.light .about-card {
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--panel), black 6%),
+    color-mix(in oklab, var(--panel-2), black 8%)
+  );
+  border: 1px solid color-mix(in oklab, var(--fg), white 85%);
+}
+.project-card {
+  background: #eaf5ec; /* very light green tint */
+  border-radius: 10px;
+  padding: 20px;
+  margin: 40px auto;
+  max-width: 800px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.project-card h2 {
+  font-family: 'Fira Code', monospace;
+  color: #1a3d2e;
+}
+
+.project-description {
+  margin-bottom: 20px;
+  color: #2b2b2b;
+  line-height: 1.6;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Fira Code', monospace;
+  background: #d0e7d5;
+  transition: 0.3s;
+}
+
+.tab-button.active {
+  background: #9dc9a7;
+  color: white;
+}
+
+.tab-button:hover {
+  background: #b7ddc0;
+}
+
+/* Tab Content */
+.tab-content {
+  display: none;
+  background: white;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+.tab-content.active {
+  display: block;
+}
+/* ---- Horizontal gallery ---- */
+.h-gallery{              /* keep the row inside the same .content--narrow */
+  margin: 18px 0 4px;
+}
+
+.h-rail{
+  /* turn the horizontal rail into a 3-column grid (no side scroll) */
+  display: grid;
+  grid-template-columns: repeat(3, minmax(320px, 1fr)); /* a little bigger */
+  gap: 5px;
+  padding: 0;
+  overflow: visible;     /* let the shadows render evenly */
+}
+
+.h-item{
+  /* same frame style as your Goals/Outcomes cards */
+  background: var(--panel);
+  border: var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+
+  /* consistent tile height + centered content */
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.h-item img{
+  display: block;
+  max-width: 125%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;   /* show full image */
+  object-position: center;
+}
+
+/* subtle lift on hover/focus */
+.h-item{
+  transition: transform .18s ease, box-shadow .18s ease;
+  will-change: transform, box-shadow;
+}
+
+.h-item:hover,
+.h-item:focus-within{
+  transform: translateY(-6px);
+  box-shadow: 0 18px 42px rgba(0,0,0,.45);  /* stronger than --shadow */
+}
+
+/* tiny image zoom for a bit of life */
+.h-item img{
+  transition: transform .18s ease;
+}
+.h-item:hover img,
+.h-item:focus-within img{
+  transform: scale(1.02);
+}
+
+/* tap/click feedback */
+.h-item:active{
+  transform: translateY(-2px);
+}
+
+/* respect reduced-motion */
+@media (prefers-reduced-motion: reduce){
+  .h-item,
+  .h-item img{
+    transition: none;
+  }
+}
+
+
+.h-nav.prev{ left: 6px; }
+.h-nav.next{ right: 6px; }
+.h-nav:hover{ background: color-mix(in oklab, var(--panel), white 6%); }
+
+@media (max-width: 900px){
+  .h-rail{ grid-template-columns: repeat(2, minmax(280px,1fr)); }
+}
+@media (max-width: 600px){
+  .h-rail{ grid-template-columns: 1fr; }
+}
+
+
+
+
+
+
+
+
+
+
+
+.h-gallerybottom {
+  /* turn the horizontal rail into a 3-column grid (no side scroll) */
+  display: grid;
+  grid-template-columns: repeat(3, minmax(320px, 1fr)); /* a little bigger */
+  gap: 5px;
+  padding: 0;
+  overflow: visible;     /* let the shadows render evenly */
+}
+
+.h-item {
+  /* same frame style as your Goals/Outcomes cards */
+  background: var(--panel);
+  border: var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+
+  /* consistent tile height + centered content */
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.h-item img {
+  display: block;
+  max-width: 115%;
+  max-height: 130%;
+  width: auto;
+  height: auto;
+  object-fit: contain;   /* show full image */
+  object-position: center;
+}
+
+/* subtle lift on hover/focus */
+.h-item {
+  transition: transform .18s ease, box-shadow .18s ease;
+  will-change: transform, box-shadow;
+}
+
+.h-item:hover,
+.h-item:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 42px rgba(0,0,0,.45);  /* stronger than --shadow */
+}
+
+/* tiny image zoom for a bit of life */
+.h-item img {
+  transition: transform .18s ease;
+}
+.h-item:hover img,
+.h-item:focus-within img {
+  transform: scale(1.02);
+}
+
+/* tap/click feedback */
+.h-item:active {
+  transform: translateY(-2px);
+}
+
+/* respect reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .h-item,
+  .h-item img {
+    transition: none;
+  }
+}
+
+.h-nav.prev { left: 6px; }
+.h-nav.next { right: 6px; }
+.h-nav:hover { background: color-mix(in oklab, var(--panel), white 6%); }
+
+@media (max-width: 900px) {
+  .h-gallerybottom { grid-template-columns: repeat(2, minmax(280px,1fr)); }
+}
+@media (max-width: 600px) {
+  .h-gallerybottom { grid-template-columns: 1fr; }
+}
+
+
+
+
+
+
+
+/* Terminal Window */
+.window {
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
+  border: var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.win-top { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-bottom: var(--border); }
+.dots { display: flex; gap: 6px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot.red { background: #ff5f56; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #88b04b; }
+.path { color: var(--muted); font-size: 13px; user-select: text; }
+
+.content { padding: 22px 18px 26px; }
+.kicker { color: var(--accent); font-size: 14px; letter-spacing: .06em; text-transform: uppercase; }
+h1 { margin: .2rem 0 .6rem; font-size: clamp(28px, 5vw, 44px); line-height: 1.2; }
+.lead { color: var(--); max-width: 70ch; }
+.stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.badge { border: var(--border); padding: 6px 8px; border-radius: 999px; font-size: 12px; color: var(--muted); background: transparent; }
+
+/* Sections */
+section { margin-top: 28px; }
+.sec-title { color: var(--fg); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; margin: 0 0 10px; }
+
+/* Project Cards */
+.grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+/* Project Cards */
+.card {
+  border: var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  background: var(--panel);  /* 🔹 match about-card panel color */
+  box-shadow: var(--shadow);
+}
+
+:root.light .card {
+  background: #eaf5ec; /* keep the light green tint for light mode */
+}
+
+.card h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  color: var(--accent-2);
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.links {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.a-btn {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  border: var(--border);
+  padding: 6px 12px;
+  border-radius: 999px;
+  text-decoration: none;
+  background: transparent;
+  color: var(--fg);
+  transition: background 0.2s, color 0.2s;
+}
+
+.a-btn:hover {
+  background: transparent;
+  border-color: var(--accent)
+  color: var(--accent);
+}
+
+/* Remove Background Motion */
+#bg-gradient { animation: none !important; }
+#bg-canvas { display: none !important; }
+
+footer { margin: 16px 0 8px; color: var(--muted); font-size: 13px; text-align: center; }
+/* --- Dark-mode contrast fixes --- */
+
+/* Make nav + logo full-contrast in dark mode */
+:root:not(.light) .topbar .nav-link,
+:root:not(.light) .topbar .logo {
+  color: var(--fg);
+}
+:root:not(.light) .topbar .nav-link:hover,
+:root:not(.light) .topbar .nav-link.active {
+  color: var(--fg);
+  background: rgba(255,255,255,.08);
+}
+
+/* RBDS mini-cards: use full-contrast text instead of muted */
+.kv .card p,
+.kv .card .bullets,
+.kv .card .bullets li {
+  color: var(--fg) !important;
+}
+
+/* Optional: make “meta/lead” copy a bit brighter only in dark mode */
+:root:not(.light) .meta,
+:root:not(.light) .lead {
+  color: color-mix(in srgb, var(--fg), white 20%);
+}
