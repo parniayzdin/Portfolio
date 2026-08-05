@@ -61,9 +61,13 @@ if (contactForm) {
     event.preventDefault();
 
     const data = new FormData(contactForm);
-    const name = String(data.get('name') || '').trim();
-    const email = String(data.get('email') || '').trim();
-    const message = String(data.get('message') || '').trim();
+    const getTextValue = (fieldName) => {
+      const value = data.get(fieldName);
+      return typeof value === 'string' ? value.trim() : '';
+    };
+    const name = getTextValue('name');
+    const email = getTextValue('email');
+    const message = getTextValue('message');
     const subject = encodeURIComponent(`Portfolio message from ${name}`);
     const body = encodeURIComponent(`${message}\n\nFrom: ${name}\nEmail: ${email}`);
 
