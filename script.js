@@ -32,7 +32,9 @@ if (bgToggle) bgToggle.style.display = 'none';
   const tw = document.getElementById('typewriter');
   if (!tw) return;
 
-  // You can override via: <h1 id="typewriter" data-text="Your text">
+  const text = tw.dataset.text || tw.textContent.trim();
+  if (!text) return;
+  tw.textContent = '';
 
   // Respect reduced motion: just set the full text
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -51,6 +53,23 @@ if (bgToggle) bgToggle.style.display = 'none';
   }
   tick();
 })();
+
+// ---- Contact form ----
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const data = new FormData(contactForm);
+    const name = String(data.get('name') || '').trim();
+    const email = String(data.get('email') || '').trim();
+    const message = String(data.get('message') || '').trim();
+    const subject = encodeURIComponent(`Portfolio message from ${name}`);
+    const body = encodeURIComponent(`${message}\n\nFrom: ${name}\nEmail: ${email}`);
+
+    window.location.href = `mailto:pari.yazdinia@gmail.com?subject=${subject}&body=${body}`;
+  });
+}
 
 // ---- Footer year ----
 const yearEl = document.getElementById('year');

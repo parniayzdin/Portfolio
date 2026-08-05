@@ -1,11 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Contact Parnia Yazdinia for software engineering opportunities and collaborations.">
   <title>Parnia — Contact</title>
-  <link rel="stylesheet" href="./style.css" />
-  
+  <link rel="stylesheet" href="./style.css">
 
   <!-- Page-local tweaks -->
   <style>
@@ -142,48 +142,48 @@ body.contact .btn-send:hover{
   <div class="wrap">
     <!-- top nav -->
     <header class="topbar">
-      <div class="logo">~/parnia@dev</div>
-      <nav class="nav">
+      <a class="logo" href="index.html">~/parnia@dev</a>
+      <nav class="nav" aria-label="Primary navigation">
         <a href="index.html" class="nav-link">Home</a>
         <a href="projects.html" class="nav-link">Projects</a>
-        <a href="contact.html" class="nav-link active">Contact</a>
+        <a href="contact.html" class="nav-link active" aria-current="page">Contact</a>
       </nav>
       <div class="controls">
-        <button class="icon" id="themeToggle" title="Toggle theme">🌓</button>
+        <button class="icon" id="themeToggle" type="button" aria-label="Toggle colour theme" title="Toggle theme">🌓</button>
       </div>
     </header>
 
     <!-- terminal-style window -->
-    <main class="window" role="region" aria-label="Contact window">
+    <main class="window">
       <div class="win-top">
         <div class="dots" aria-hidden="true">
           <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
         </div>
         <div class="path">parnia@dev: ~/contact</div>
-        <div style="width:40px"></div>
+        <div class="window-spacer" aria-hidden="true"></div>
       </div>
 
       <div class="content content--center">
         <h1 class="contact-title">Contact</h1>
-        <p class="lead">Hi! I’m always down to chat ideas, collabs, or simply to say hi. Shoot me an Email. ☕🌿</p>
+        <p class="lead">Have an opportunity, project, or idea in mind? Send me a message and I’ll get back to you by email.</p>
 
         <!-- two-column layout using your .grid -->
-        <div class="grid" style="margin-top:14px">
+        <div class="grid contact-grid">
           <!-- LEFT: form -->
           <section class="form-card">
-            <h3 style="margin:0 0 8px">Send a message</h3>
-            <form id="contactForm" novalidate>
+            <h3 class="section-heading">Send a message</h3>
+            <form id="contactForm">
               <div class="field">
                 <label for="name">Name</label>
-                <input id="name" class="input" name="name" autocomplete="name" />
+                <input id="name" class="input" type="text" name="name" autocomplete="name" required>
               </div>
               <div class="field">
                 <label for="email">Email</label>
-                <input id="email" class="input" type="email" name="email" autocomplete="email" />
+                <input id="email" class="input" type="email" name="email" autocomplete="email" required>
               </div>
               <div class="field">
                 <label for="message">Message</label>
-                <textarea id="message" class="textarea" name="message" placeholder="Write a few lines…"></textarea>
+                <textarea id="message" class="textarea" name="message" placeholder="Write a few lines…" required></textarea>
               </div>
               <div class="btn-row">
                 <button type="submit" class="btn-send">✉️ Send via Email</button>
@@ -192,22 +192,22 @@ body.contact .btn-send:hover{
           </section>
 
           <section class="contact-card">
-            <h3 style="margin:0 0 8px">Direct</h3>
+            <h3 class="section-heading">Direct</h3>
             <div class="meta">Email</div>
             <code id="emailText">pari.yazdinia@gmail.com</code>
-            <div class="row" style="margin-top:8px">
-              <button class="btn" id="copyEmail">📋 Copy</button>
+            <div class="row row-spaced">
+              <button class="btn" id="copyEmail" type="button">📋 Copy</button>
               <a class="btn" href="mailto:pari.yazdinia@gmail.com?subject=Hello%20from%20your%20site">✉️ Email</a>
             </div>
 
-            <h3 style="margin:16px 0 8px">Links</h3>
+            <h3 class="subsection-heading">Links</h3>
             <div class="row">
               <a class="btn" href="https://github.com/parniayzdin" target="_blank" rel="noreferrer">🐙 GitHub</a>
               <a class="btn" href="https://www.linkedin.com/in/parnia-yazdinia-983703214/" target="_blank" rel="noreferrer">💼 LinkedIn</a>
             </div>
 
-            <h3 style="margin:16px 0 8px">Elsewhere</h3>
-            <p class="muted" style="margin:0">Based in Ontario. Open to remote/hybrid.</p>
+            <h3 class="subsection-heading">Elsewhere</h3>
+            <p class="muted compact">Based in Ontario. Open to remote/hybrid.</p>
           </section>
         </div>
       </div>
