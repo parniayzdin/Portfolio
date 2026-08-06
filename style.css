@@ -565,6 +565,75 @@ footer { margin: 16px 0 8px; color: var(--muted); font-size: 13px; text-align: c
   font-size: 12px;
 }
 
+.progress-card h3 {
+  margin: 16px 0 8px;
+  color: var(--accent-2);
+  font-size: 16px;
+}
+
+.progress-list {
+  display: grid;
+  gap: 0;
+  margin: 18px 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: migration-stage;
+}
+
+.progress-list li {
+  position: relative;
+  padding: 0 0 18px 32px;
+  counter-increment: migration-stage;
+}
+
+.progress-list li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 22px;
+  bottom: 2px;
+  left: 10px;
+  width: 1px;
+  background: var(--muted);
+  opacity: .45;
+}
+
+.progress-list li::before {
+  content: counter(migration-stage);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  width: 21px;
+  height: 21px;
+  place-items: center;
+  border: var(--border);
+  border-radius: 50%;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.progress-list li.current::before {
+  border-color: var(--accent-2);
+  color: var(--accent-2);
+}
+
+.progress-list strong,
+.progress-list span {
+  display: block;
+}
+
+.progress-list strong {
+  margin-bottom: 4px;
+  color: var(--fg);
+  font-size: 13px;
+}
+
+.progress-list span {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
 .kv {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
