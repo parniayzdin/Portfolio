@@ -3,9 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Selected cloud, backend, hardware, and product engineering projects by Parnia Yazdinia.">
+  <meta name="description" content="Physical prototypes and coding projects by Parnia Yazdinia.">
   <title>Parnia — Projects</title>
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./projects.css">
 </head>
 
 <body>
@@ -26,7 +27,7 @@
     </header>
 
     <main>
-      <section class="window" aria-labelledby="projects-title">
+      <section class="window projects-hero" aria-labelledby="projects-title">
         <div class="win-top">
           <div class="dots" aria-hidden="true">
             <span class="dot red"></span>
@@ -39,204 +40,232 @@
 
         <div class="content content--narrow projects-intro">
           <span class="kicker">Selected work</span>
-          <h1 id="projects-title">Cloud systems, backend tools, and hands-on engineering.</h1>
+          <h1 id="projects-title">Projects built in code and in the real world.</h1>
           <p class="lead">
-            I enjoy building systems that make complex workflows easier to understand,
-            test, and trust—from backend tooling to physical prototypes.
+            A collection of physical prototypes, cloud systems, developer tools,
+            and product experiments.
           </p>
 
-          <div class="stack">
-            <span class="badge">Python</span>
-            <span class="badge">Java</span>
-            <span class="badge">APIs</span>
-            <span class="badge">Cloud</span>
-          </div>
+          <nav class="project-index" aria-label="Project categories">
+            <a href="#physical-projects">
+              <span class="index-number">01</span>
+              <span><strong>Physical projects</strong><small>Prototypes, FPGA, CAD</small></span>
+            </a>
+            <a href="#coding-projects">
+              <span class="index-number">02</span>
+              <span><strong>Coding projects</strong><small>Cloud, web, tools, RTL</small></span>
+            </a>
+          </nav>
         </div>
       </section>
 
-      <section class="window project-window" aria-labelledby="verifier-title">
-        <div class="win-top">
-          <div class="dots" aria-hidden="true">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
+      <section id="physical-projects" class="project-category" aria-labelledby="physical-title">
+        <div class="category-heading">
+          <div>
+            <span class="section-number">01</span>
+            <p class="kicker">Hands-on engineering</p>
+            <h2 id="physical-title">Physical Projects</h2>
           </div>
-          <div class="path">featured-project.json</div>
-          <div class="window-spacer" aria-hidden="true"></div>
+          <p>From early CAD to tested prototypes.</p>
         </div>
 
-        <div class="content content--narrow">
-          <div class="project-label-row">
-            <span class="kicker">Featured backend project</span>
-            <span class="project-status">Repository currently private</span>
+        <article class="window physical-project" aria-labelledby="rbds-title">
+          <div class="win-top">
+            <div class="dots" aria-hidden="true">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div class="path">hardware/robotic-baggage-system</div>
+            <div class="window-spacer" aria-hidden="true"></div>
           </div>
 
-          <div class="featured-project">
-            <div class="project-copy">
-              <h2 id="verifier-title">Deployment Application Verifier</h2>
+          <div class="content physical-project-layout">
+            <div class="physical-copy">
+              <span class="kicker">McMaster Design League</span>
+              <h3 id="rbds-title">Robotic Baggage Delivery System</h3>
               <p class="lead">
-                An event-driven AWS platform that checks whether an application
-                actually works after CloudFormation finishes deploying it. It catches
-                “false-green” releases where the infrastructure succeeds but the
-                running application is broken.
+                An airport check-in and luggage-transfer prototype using FPGA control
+                logic, sensors, and motors to coordinate baggage hand-offs in real time.
               </p>
 
-              <ol class="architecture-flow" aria-label="Verification workflow">
-                <li><span>CloudFormation success</span></li>
-                <li><span>EventBridge</span></li>
-                <li><span>Verifier Lambda</span></li>
-                <li><span>PASS / FAIL report</span></li>
-              </ol>
-
-              <ul class="project-points">
-                <li>Checks API responses and optional Lambda, CloudWatch, and DynamoDB signals.</li>
-                <li>Uses deterministic rules so every result is explainable and repeatable.</li>
-                <li>Stores evidence-backed reports and recommended next steps in DynamoDB.</li>
-              </ul>
+              <div class="project-facts" aria-label="Robotic baggage system highlights">
+                <span>FPGA control</span>
+                <span>Sensor feedback</span>
+                <span>CAD validation</span>
+              </div>
 
               <div class="stack">
-                <span class="badge">AWS SAM</span>
-                <span class="badge">API Gateway</span>
-                <span class="badge">Pytest</span>
-                <span class="badge">GitHub Actions</span>
+                <span class="badge">Verilog</span>
+                <span class="badge">FPGA</span>
+                <span class="badge">Sensors</span>
+                <span class="badge">CAD</span>
               </div>
             </div>
 
-            <aside class="evidence-card" aria-label="Project verification summary">
-              <span class="evidence-label">Verified locally</span>
-              <dl>
-                <dt>25</dt>
-                <dd>automated tests</dd>
-                <dt>86%</dt>
-                <dd>code coverage</dd>
-                <dt>4</dt>
-                <dd>runtime signal types</dd>
-              </dl>
-              <p>Infrastructure is deployable with AWS SAM.</p>
-            </aside>
+            <div class="physical-gallery" aria-label="Robotic baggage system gallery">
+              <figure class="gallery-feature">
+                <img src="https://raw.githubusercontent.com/parniayzdin/Portfolio/main/imgrbds.png" alt="CAD model of the robotic baggage transfer system">
+              </figure>
+              <figure>
+                <img src="https://raw.githubusercontent.com/parniayzdin/Portfolio/main/imgrbds2-clean.png" alt="Team testing the robotic baggage prototype" loading="lazy" decoding="async">
+              </figure>
+              <figure>
+                <img src="https://raw.githubusercontent.com/parniayzdin/Portfolio/main/imgrbds-2.jpg" alt="Side view of the baggage transfer mechanism" loading="lazy" decoding="async">
+              </figure>
+            </div>
           </div>
-        </div>
+        </article>
+
+        <article class="window physical-project" aria-labelledby="kitchen-title">
+          <div class="win-top">
+            <div class="dots" aria-hidden="true">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div class="path">product/assistive-kitchen-tool</div>
+            <div class="window-spacer" aria-hidden="true"></div>
+          </div>
+
+          <div class="content physical-project-layout physical-project-layout--reverse">
+            <div class="physical-copy">
+              <span class="kicker">McMaster Design League</span>
+              <h3 id="kitchen-title">Assistive Kitchen Tool</h3>
+              <p class="lead">
+                A modular preparation tray with interchangeable attachments designed
+                to make food preparation safer for people with dual sensory impairments.
+              </p>
+
+              <div class="project-facts" aria-label="Assistive kitchen tool highlights">
+                <span>User testing</span>
+                <span>Modular design</span>
+                <span>Design iteration</span>
+              </div>
+
+              <div class="stack">
+                <span class="badge">Prototyping</span>
+                <span class="badge">CAD</span>
+                <span class="badge">Accessibility</span>
+                <span class="badge">User research</span>
+              </div>
+            </div>
+
+            <div class="physical-gallery" aria-label="Assistive kitchen tool gallery">
+              <figure class="gallery-feature">
+                <img src="https://raw.githubusercontent.com/parniayzdin/Portfolio/main/image-2.png" alt="CAD model of the modular assistive kitchen tray" loading="lazy" decoding="async">
+              </figure>
+              <figure>
+                <img src="https://raw.githubusercontent.com/parniayzdin/Portfolio/main/image-1.png" alt="User testing the modular kitchen tray prototype" loading="lazy" decoding="async">
+              </figure>
+              <figure>
+                <img src="https://raw.githubusercontent.com/parniayzdin/Portfolio/main/image-3.png" alt="Team assembling components for the kitchen tool prototype" loading="lazy" decoding="async">
+              </figure>
+            </div>
+          </div>
+        </article>
       </section>
 
-      <section class="window project-window" aria-labelledby="rbds-title">
-        <div class="win-top">
-          <div class="dots" aria-hidden="true">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
+      <section id="coding-projects" class="project-category" aria-labelledby="coding-title">
+        <div class="category-heading">
+          <div>
+            <span class="section-number">02</span>
+            <p class="kicker">Software &amp; digital systems</p>
+            <h2 id="coding-title">Coding Projects</h2>
           </div>
-          <div class="path">hardware/robotic-baggage-system</div>
-          <div class="window-spacer" aria-hidden="true"></div>
+          <p>Short summaries. Full implementations live on GitHub.</p>
         </div>
 
-        <div class="content content--narrow">
-          <span class="kicker">McMaster Design League</span>
-          <h2 id="rbds-title">Robotic Baggage Delivery System</h2>
-          <p class="lead">
-            Our team built an end-to-end airport check-in and luggage transfer
-            prototype. Verilog control logic ran on an FPGA to read sensors, drive
-            motors, and coordinate baggage hand-offs in real time.
-          </p>
-
-          <div class="kv">
-            <div class="card">
-              <h3>Goals</h3>
-              <ul class="bullets">
-                <li>Transfer baggage accurately between platforms.</li>
-                <li>Validate passenger eligibility through barcode data.</li>
-                <li>Meet the project’s cost and weight constraints.</li>
-              </ul>
+        <div class="coding-grid">
+          <article class="code-card code-card--featured">
+            <div class="code-card-top">
+              <span class="repo-mark" aria-hidden="true">&lt;/&gt;</span>
+              <span class="repo-status">Featured</span>
             </div>
-            <div class="card">
-              <h3>Outcomes</h3>
-              <ul class="bullets">
-                <li>Coordinated the transfer mechanism with sensor feedback.</li>
-                <li>Built a check-in interface with passenger-data validation.</li>
-                <li>Validated modular components through CAD and technical drawings.</li>
-              </ul>
+            <h3>Deployment Application Verifier</h3>
+            <p>Event-driven AWS verification for detecting false-green CloudFormation deployments.</p>
+            <div class="stack">
+              <span class="badge">Python</span>
+              <span class="badge">AWS SAM</span>
+              <span class="badge">EventBridge</span>
             </div>
-          </div>
+            <a class="repo-link" href="https://github.com/parniayzdin/deployment-application-verifier" target="_blank" rel="noopener noreferrer" aria-label="View Deployment Application Verifier on GitHub">View repository <span aria-hidden="true">↗</span></a>
+          </article>
 
-          <div class="stack">
-            <span class="badge">Verilog</span>
-            <span class="badge">FPGA</span>
-            <span class="badge">Sensors</span>
-            <span class="badge">CAD</span>
-          </div>
+          <article class="code-card">
+            <div class="code-card-top">
+              <span class="repo-mark" aria-hidden="true">&lt;/&gt;</span>
+            </div>
+            <h3>FPGA Combination Lock</h3>
+            <p>Moore FSM–based lock with code updates, conditioned inputs, and alarm logic.</p>
+            <div class="stack">
+              <span class="badge">Verilog</span>
+              <span class="badge">FPGA</span>
+              <span class="badge">FSM</span>
+            </div>
+            <a class="repo-link" href="https://github.com/parniayzdin/Verilog-Combination-lock" target="_blank" rel="noopener noreferrer" aria-label="View FPGA Combination Lock on GitHub">View repository <span aria-hidden="true">↗</span></a>
+          </article>
 
-          <section class="h-rail project-gallery" aria-label="Robotic baggage system gallery">
-            <figure class="h-item">
-              <img src="imgrbds.png" alt="CAD model of the robotic baggage transfer system" loading="lazy" decoding="async">
-            </figure>
-            <figure class="h-item">
-              <img src="imgrbds2-clean.png" alt="Team testing the robotic baggage prototype" loading="lazy" decoding="async">
-            </figure>
-            <figure class="h-item">
-              <img src="imgrbds-2.jpg" alt="Side view of the baggage transfer mechanism" loading="lazy" decoding="async">
-            </figure>
-          </section>
+          <article class="code-card">
+            <div class="code-card-top">
+              <span class="repo-mark" aria-hidden="true">&lt;/&gt;</span>
+            </div>
+            <h3>Fuelio</h3>
+            <p>Fuel-price advisor with nearby stations, trip-cost estimates, and trend forecasting.</p>
+            <div class="stack">
+              <span class="badge">React</span>
+              <span class="badge">FastAPI</span>
+              <span class="badge">PostgreSQL</span>
+            </div>
+            <a class="repo-link" href="https://github.com/parniayzdin/Fuelio" target="_blank" rel="noopener noreferrer" aria-label="View Fuelio on GitHub">View repository <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="code-card">
+            <div class="code-card-top">
+              <span class="repo-mark" aria-hidden="true">&lt;/&gt;</span>
+            </div>
+            <h3>Subscription Launchpad</h3>
+            <p>Merchant planning tool for validating subscription offers and forecasting 90-day schedules.</p>
+            <div class="stack">
+              <span class="badge">Angular</span>
+              <span class="badge">TypeScript</span>
+              <span class="badge">MongoDB</span>
+            </div>
+            <a class="repo-link" href="https://github.com/parniayzdin/subscription-launchpad" target="_blank" rel="noopener noreferrer" aria-label="View Subscription Launchpad on GitHub">View repository <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="code-card">
+            <div class="code-card-top">
+              <span class="repo-mark" aria-hidden="true">&lt;/&gt;</span>
+            </div>
+            <h3>WRSS Migration Studio</h3>
+            <p>Flask and CLI tooling that generates source-traceable modernization documentation.</p>
+            <div class="stack">
+              <span class="badge">Python</span>
+              <span class="badge">Flask</span>
+              <span class="badge">Automation</span>
+            </div>
+            <a class="repo-link" href="https://github.com/parniayzdin/WRSS-Migration-Studio" target="_blank" rel="noopener noreferrer" aria-label="View WRSS Migration Studio on GitHub">View repository <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="code-card">
+            <div class="code-card-top">
+              <span class="repo-mark" aria-hidden="true">&lt;/&gt;</span>
+            </div>
+            <h3>UML-to-Java Generator</h3>
+            <p>Model-to-code tool that converts draw.io UML classes and relationships into Java source.</p>
+            <div class="stack">
+              <span class="badge">Java</span>
+              <span class="badge">XML</span>
+              <span class="badge">Code generation</span>
+            </div>
+            <a class="repo-link" href="https://github.com/parniayzdin/Assignment-Bonus-2" target="_blank" rel="noopener noreferrer" aria-label="View UML-to-Java Generator on GitHub">View repository <span aria-hidden="true">↗</span></a>
+          </article>
         </div>
-      </section>
 
-      <section class="window project-window" aria-labelledby="kitchen-title">
-        <div class="win-top">
-          <div class="dots" aria-hidden="true">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-          </div>
-          <div class="path">product/assistive-kitchen-tool</div>
-          <div class="window-spacer" aria-hidden="true"></div>
-        </div>
-
-        <div class="content content--narrow">
-          <span class="kicker">McMaster Design League</span>
-          <h2 id="kitchen-title">Assistive Kitchen Tool</h2>
-          <p class="lead">
-            Our team designed a modular preparation tray with interchangeable
-            attachments for people with dual sensory impairments. We combined
-            prototyping, user feedback, and design constraints to make food
-            preparation safer and easier.
-          </p>
-
-          <div class="kv">
-            <div class="card">
-              <h3>Goals</h3>
-              <ul class="bullets">
-                <li>Support safe preparation of different types of produce.</li>
-                <li>Make attachments easy to identify, replace, and use.</li>
-                <li>Build with durable, heat-tolerant materials.</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h3>Outcomes</h3>
-              <ul class="bullets">
-                <li>Tested attachments through low-vision simulations.</li>
-                <li>Tracked fabrication costs and material usage.</li>
-                <li>Used feedback to refine the modular design.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="stack">
-            <span class="badge">Prototyping</span>
-            <span class="badge">CAD</span>
-            <span class="badge">User testing</span>
-            <span class="badge">Design iteration</span>
-          </div>
-
-          <section class="h-rail project-gallery" aria-label="Assistive kitchen tool gallery">
-            <figure class="h-item">
-              <img src="image-2.png" alt="CAD model of the modular assistive kitchen tray" loading="lazy" decoding="async">
-            </figure>
-            <figure class="h-item">
-              <img src="image-1.png" alt="User testing the modular kitchen tray prototype" loading="lazy" decoding="async">
-            </figure>
-            <figure class="h-item">
-              <img src="image-3.png" alt="Team assembling components for the kitchen tool prototype" loading="lazy" decoding="async">
-            </figure>
-          </section>
-        </div>
+        <a class="github-footer-link" href="https://github.com/parniayzdin" target="_blank" rel="noopener noreferrer">
+          Explore all public repositories on GitHub <span aria-hidden="true">↗</span>
+        </a>
       </section>
     </main>
 
