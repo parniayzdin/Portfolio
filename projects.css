@@ -233,11 +233,6 @@ html {
   );
 }
 
-.coding-grid > .code-card:nth-last-child(2),
-.coding-grid > .code-card:last-child {
-  grid-column: span 3;
-}
-
 .code-card-top {
   display: flex;
   align-items: center;
@@ -331,9 +326,7 @@ html {
   }
 
   .code-card,
-  .code-card--featured,
-  .coding-grid > .code-card:nth-last-child(2),
-  .coding-grid > .code-card:last-child {
+  .code-card--featured {
     grid-column: auto;
   }
 }
