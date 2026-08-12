@@ -48,6 +48,14 @@ html {
   font-size: 12px;
 }
 
+:root:not(.light) .project-index small,
+:root:not(.light) .category-heading > p,
+:root:not(.light) .code-card p,
+:root:not(.light) .code-card .badge,
+:root:not(.light) .repo-status {
+  color: color-mix(in srgb, var(--fg), var(--muted) 38%);
+}
+
 .index-number,
 .section-number {
   color: var(--accent-2);
