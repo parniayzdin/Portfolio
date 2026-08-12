@@ -1,4 +1,4 @@
-# Parnia Yazdinia — Portfolio
+# Parnia Yazdinia: Portfolio
 
 This repository contains my personal portfolio website. It highlights my work
 across cloud and backend development, hardware prototyping, and accessible
