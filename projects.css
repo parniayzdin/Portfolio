@@ -269,6 +269,15 @@ html {
   font-size: 14px;
 }
 
+.code-card .project-context {
+  margin: 0 0 8px;
+  color: var(--accent-2);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
 .code-card .stack {
   margin-bottom: 22px;
 }
