@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Physical prototypes and coding projects by Parnia Yazdinia.">
+  <meta name="description" content="Physical prototypes and software projects by Parnia Yazdinia.">
   <title>Parnia Projects</title>
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="./projects.css">
@@ -42,8 +42,8 @@
           <span class="kicker">Selected work</span>
           <h1 id="projects-title">Projects built in code and in the real world.</h1>
           <p class="lead">
-            A collection of physical prototypes, cloud systems, developer tools,
-            and product experiments.
+            A collection of physical prototypes, graphics, embedded systems,
+            cloud projects, and product experiments.
           </p>
 
           <nav class="project-index" aria-label="Project categories">
@@ -53,7 +53,7 @@
             </a>
             <a href="#coding-projects">
               <span class="index-number">02</span>
-              <span><strong>Coding projects</strong><small>Cloud, web, tools, RTL</small></span>
+              <span><strong>Coding projects</strong><small>Graphics, embedded, cloud, web</small></span>
             </a>
           </nav>
         </div>
@@ -177,10 +177,37 @@
         </div>
 
         <div class="coding-grid">
-          <article class="code-card code-card--featured">
+          <article class="code-card">
             <div class="code-card-top">
               <span class="repo-mark" aria-hidden="true">&lt;/&gt;</span>
-              <span class="repo-status">Featured</span>
+            </div>
+            <h3>Electron Field Simulator</h3>
+            <p>C++ and OpenGL simulation for visualizing charged-particle motion in electromagnetic fields with real-time GPU-rendered graphics.</p>
+            <div class="stack">
+              <span class="badge">C++</span>
+              <span class="badge">OpenGL</span>
+              <span class="badge">GLSL</span>
+            </div>
+            <a class="repo-link" href="https://github.com/parniayzdin/Electron_Simulation" target="_blank" rel="noopener noreferrer" aria-label="View Electron Field Simulator on GitHub">View repository <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="code-card">
+            <div class="code-card-top">
+              <span class="repo-mark" aria-hidden="true">&lt;/&gt;</span>
+            </div>
+            <h3>ComponentBox</h3>
+            <p>ESP32-CAM system that captures electronic components and sends images to a Python/FastAPI backend for image classification.</p>
+            <div class="stack">
+              <span class="badge">C++</span>
+              <span class="badge">ESP32-CAM</span>
+              <span class="badge">FastAPI</span>
+            </div>
+            <a class="repo-link" href="https://github.com/safaripb/componentbox" target="_blank" rel="noopener noreferrer" aria-label="View ComponentBox on GitHub">View repository <span aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="code-card">
+            <div class="code-card-top">
+              <span class="repo-mark" aria-hidden="true">&lt;/&gt;</span>
             </div>
             <h3>Deployment Application Verifier</h3>
             <p>Event-driven AWS verification for detecting false-green CloudFormation deployments.</p>
@@ -190,20 +217,6 @@
               <span class="badge">EventBridge</span>
             </div>
             <a class="repo-link" href="https://github.com/parniayzdin/deployment-application-verifier" target="_blank" rel="noopener noreferrer" aria-label="View Deployment Application Verifier on GitHub">View repository <span aria-hidden="true">↗</span></a>
-          </article>
-
-          <article class="code-card">
-            <div class="code-card-top">
-              <span class="repo-mark" aria-hidden="true">&lt;/&gt;</span>
-            </div>
-            <h3>FPGA Combination Lock</h3>
-            <p>Moore FSM–based lock with code updates, conditioned inputs, and alarm logic.</p>
-            <div class="stack">
-              <span class="badge">Verilog</span>
-              <span class="badge">FPGA</span>
-              <span class="badge">FSM</span>
-            </div>
-            <a class="repo-link" href="https://github.com/parniayzdin/Verilog-Combination-lock" target="_blank" rel="noopener noreferrer" aria-label="View FPGA Combination Lock on GitHub">View repository <span aria-hidden="true">↗</span></a>
           </article>
 
           <article class="code-card">
@@ -240,15 +253,14 @@
               <span class="repo-mark" aria-hidden="true">&lt;/&gt;</span>
             </div>
             <h3>Catan Simulator</h3>
-            <p>Graph-based Java game simulator with automated tests and probability-driven computer strategy.</p>
+            <p>Object-oriented Java game simulator built from UML domain models with automated testing and team-based Git workflows.</p>
             <div class="stack">
               <span class="badge">Java</span>
               <span class="badge">JUnit</span>
-              <span class="badge">Maven</span>
+              <span class="badge">UML</span>
             </div>
             <a class="repo-link" href="https://github.com/glozmae/Catan-2AA4-Team-15" target="_blank" rel="noopener noreferrer" aria-label="View Catan Simulator on GitHub">View repository <span aria-hidden="true">↗</span></a>
           </article>
-
         </div>
 
         <a class="github-footer-link" href="https://github.com/parniayzdin" target="_blank" rel="noopener noreferrer">
