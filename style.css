@@ -15,3 +15,12 @@
 .personal-photo img{display:block;width:100%;height:440px;object-fit:cover;object-position:center;border-radius:210px 210px 0 0;filter:saturate(.85)}
 .photo-flower{position:absolute;bottom:-23px;left:-22px;width:65px;height:65px;display:grid;place-items:center;border-radius:50%;background:#f3eedf;border:1px solid #b6a369;color:#8e986d;font-size:40px}
 @media(max-width:760px){.personal-hero{padding:35px 6%}.personal-card{padding:35px 8%;grid-template-columns:1fr;gap:32px}.personal-copy h1{font-size:59px;margin-bottom:24px}.personal-copy>p:not(.eyebrow){font-size:14px;line-height:1.8}.personal-photo{width:100%;max-width:310px;justify-self:center}.personal-photo img{height:330px}.photo-flower{height:52px;width:52px;left:-15px;font-size:32px}}
+
+.featured{gap:22px}
+.featured .project{border:1px solid #aab39b;background:#f7f3e8;padding:30px 32px;display:flex;flex-direction:column;transition:border-color .2s,background .2s}
+.featured .project:hover{border-color:#6c8166;background:#edf0e2}
+.featured .project-meta{margin:0 0 22px;align-items:center}
+.featured .project h3{font-size:34px;line-height:1.15}
+.featured .project p{margin:18px 0 26px}
+.featured .project small{margin-top:auto;padding-top:17px;border-top:1px solid #c8cdbb;color:#53664f}
+@media(max-width:760px){.featured{gap:18px}.featured .project{padding:25px}.featured .project h3{font-size:31px}}
