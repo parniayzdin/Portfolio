@@ -1,125 +1,36 @@
-// ---- Theme ----
-const root = document.documentElement;
-const savedTheme = localStorage.getItem('theme');
-
-// restore saved theme
-if (savedTheme === 'light') {
-  root.classList.add('light');
-} else {
-  root.classList.remove('light');
+const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+let paused = reduce.matches;
+const motion = document.querySelector('#motion');
+const syncMotion = () => { motion.textContent = paused ? 'Resume motion' : 'Pause motion'; motion.setAttribute('aria-pressed', String(paused)); document.body.classList.toggle('paused', paused); };
+syncMotion();
+motion.addEventListener('click', () => { paused = !paused; syncMotion(); });
+reduce.addEventListener('change', () => { paused = reduce.matches; syncMotion(); });
+document.querySelector('#year').textContent = new Date().getFullYear();
+document.querySelector('#copy').addEventListener('click', async () => { try { await navigator.clipboard.writeText('pari.yazdinia@gmail.com'); document.querySelector('#copy-status').textContent = 'Email copied.'; } catch { document.querySelector('#copy-status').textContent = 'Please copy the email address above.'; } });
+const painting = document.querySelector('#painting');
+painting.addEventListener('pointermove', e => { if (paused || e.pointerType !== 'mouse') return; const r = painting.getBoundingClientRect(); painting.style.transform = `perspective(1000px) rotateY(${(e.clientX-r.left-r.width/2)/r.width*8}deg) rotateX(${-(e.clientY-r.top-r.height/2)/r.height*6}deg)`; });
+painting.addEventListener('pointerleave', () => { painting.style.transform = ''; });
+async function ornament() {
+ const THREE = await import('./assets/vendor/three.module.js');
+ const host = document.querySelector('#ornament');
+ const renderer = new THREE.WebGLRenderer({alpha:true,antialias:true});
+ renderer.setPixelRatio(Math.min(devicePixelRatio, 2)); host.append(renderer.domElement); host.querySelector('span').hidden = true;
+ const scene = new THREE.Scene(); const camera = new THREE.PerspectiveCamera(35,1,.1,100); camera.position.z=7;
+ scene.add(new THREE.HemisphereLight(0xfff1cf,0x16382c,3)); const light = new THREE.DirectionalLight(0xffe9bb,4);light.position.set(3,4,5);scene.add(light);
+ const group = new THREE.Group(); scene.add(group);
+ const gold = new THREE.MeshStandardMaterial({color:0xc9a75d,metalness:.65,roughness:.35});
+ const green = new THREE.MeshStandardMaterial({color:0x779572,metalness:.25,roughness:.4});
+ for(let ring=0;ring<2;ring++) for(let i=0;i<8;i++) {const a=i*Math.PI/4+ring*Math.PI/8;const petal=new THREE.Mesh(new THREE.SphereGeometry(1,24,16),ring?gold:green);petal.scale.set(.22,.64,.14);petal.position.set(Math.sin(a)*(ring?.65:1),Math.cos(a)*(ring?.65:1),ring*.2);petal.rotation.z=-a;group.add(petal);}
+ const center=new THREE.Mesh(new THREE.IcosahedronGeometry(.34,1),gold);center.position.z=.32;group.add(center);
+ const halo=new THREE.Mesh(new THREE.TorusGeometry(1.76,.018,8,96),gold);group.add(halo);
+ for(let i=0;i<8;i++){const bead=new THREE.Mesh(new THREE.SphereGeometry(.055,12,8),gold);bead.position.set(Math.cos(i*Math.PI/4)*1.76,Math.sin(i*Math.PI/4)*1.76,0);group.add(bead);}
+ let dragging=false,lastX=0,lastY=0,visible=true;
+ host.addEventListener('pointerdown',e=>{dragging=true;lastX=e.clientX;lastY=e.clientY;host.setPointerCapture(e.pointerId);});
+ host.addEventListener('pointermove',e=>{if(!dragging)return;group.rotation.y+=(e.clientX-lastX)*.012;group.rotation.x+=(e.clientY-lastY)*.012;lastX=e.clientX;lastY=e.clientY;});
+ for(const event of ['pointerup','pointercancel','lostpointercapture'])host.addEventListener(event,()=>dragging=false);
+ host.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key))return;e.preventDefault();group.rotation.y+=e.key==='ArrowLeft'?-.15:e.key==='ArrowRight'?.15:0;group.rotation.x+=e.key==='ArrowUp'?-.15:e.key==='ArrowDown'?.15:0;});
+ new ResizeObserver(()=>{renderer.setSize(host.clientWidth,host.clientHeight);camera.aspect=host.clientWidth/host.clientHeight;camera.updateProjectionMatrix();}).observe(host);
+ new IntersectionObserver(([entry])=>visible=entry.isIntersecting).observe(host);
+ let previous=0;renderer.setAnimationLoop(t=>{const dt=Math.min((t-previous)/1000,.05);previous=t;if(!visible||document.hidden)return;if(!paused&&!dragging)group.rotation.y+=dt*.2;renderer.render(scene,camera);});
 }
-
-const themeBtn = document.getElementById('themeToggle');
-if (themeBtn) {
-  themeBtn.addEventListener('click', () => {
-    const isLight = root.classList.toggle('light');
-    localStorage.setItem('theme', isLight ? 'light' : 'dark');
-  });
-}
-
-// ---- Remove background animations ----
-const bgGradient = document.getElementById('bg-gradient');
-if (bgGradient) bgGradient.style.animation = 'none';
-
-const bgCanvas = document.getElementById('bg-canvas');
-if (bgCanvas) bgCanvas.style.display = 'none';
-
-const bgToggle = document.getElementById('bgToggle');
-if (bgToggle) bgToggle.style.display = 'none';
-
-// ---- Hero typewriter (id="typewriter") — run once ----
-(function () {
-  const tw = document.getElementById('typewriter');
-  if (!tw) return;
-
-  const text = tw.dataset.text || tw.textContent.trim();
-  if (!text) return;
-  tw.textContent = '';
-
-  // Respect reduced motion: just set the full text
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    tw.textContent = text;
-    return;
-  }
-
-  let i = 0;
-  function tick() {
-    if (i < text.length) {
-      tw.textContent += text.charAt(i++);
-      setTimeout(tick, 60);
-    } else {
-      tw.style.borderRight = 'none';
-    }
-  }
-  tick();
-})();
-
-// ---- Contact form ----
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-  contactForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    const data = new FormData(contactForm);
-    const getTextValue = (fieldName) => {
-      const value = data.get(fieldName);
-      return typeof value === 'string' ? value.trim() : '';
-    };
-    const name = getTextValue('name');
-    const email = getTextValue('email');
-    const message = getTextValue('message');
-    const subject = encodeURIComponent(`Portfolio message from ${name}`);
-    const body = encodeURIComponent(`${message}\n\nFrom: ${name}\nEmail: ${email}`);
-
-    window.location.href = `mailto:pari.yazdinia@gmail.com?subject=${subject}&body=${body}`;
-  });
-}
-
-// ---- Footer year ----
-const yearEl = document.getElementById('year');
-if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-// ---- Type once for section titles ----
-// Add class="type-once" to any <h1>/<h2> you want typed.
-// To force a specific title NOT to type, either remove the class
-// or add data-no-type to it.
-(function () {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-  // Only target elements that have .type-once and NOT data-no-type
-  const els = document.querySelectorAll('.type-once:not([data-no-type])');
-
-  function typeTitle(el) {
-    if (el.dataset.typed) return; // guard against re-entry
-    el.dataset.typed = '1';
-
-    const full = el.textContent.trim();
-    const speed = Number(el.dataset.speed || 28);  // optional: data-speed="40"
-    const delay = Number(el.dataset.delay || 0);   // optional: data-delay="200"
-
-    el.textContent = '';
-    el.classList.add('typing');
-
-    let i = 0;
-    function tick() {
-      el.textContent = full.slice(0, ++i);
-      if (i < full.length) {
-        setTimeout(tick, speed);
-      } else {
-        el.classList.remove('typing'); // stop caret (if you style it)
-      }
-    }
-    setTimeout(tick, delay);
-  }
-
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        typeTitle(entry.target);
-        io.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.3 });
-
-  els.forEach((el) => io.observe(el));
-})();
+ornament().catch(error=>console.warn('The decorative 3D ornament is unavailable; showing its static fallback.',error));

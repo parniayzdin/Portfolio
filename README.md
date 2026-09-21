@@ -1,8 +1,11 @@
-# Parnia Yazdinia: Portfolio
+# Parnia Yazdinia
 
-This repository contains my personal portfolio website. It highlights my work
-across cloud and backend development, hardware prototyping, and accessible
-product design while I study Software Engineering at McMaster University.
+My personal portfolio: selected software and engineering projects, a little about me, and ways to connect.
 
-You can view the portfolio here:  
-[https://portfolioparnia.vercel.app](https://portfolioparnia.vercel.app/)
+A scrolling layout inspired by Persian miniature gardens, with an interactive Three.js ornament. Built with HTML, CSS, and JavaScript.
+
+[Live portfolio](https://portfolioparnia.vercel.app/)
+
+To preview locally, run `python -m http.server 5200` and open http://localhost:5200.
+
+Three.js is distributed under the MIT license; see `assets/vendor/LICENSE`.
