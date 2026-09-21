@@ -45,7 +45,7 @@
 .work-title{position:relative;isolation:isolate;padding-bottom:42px}
 .work-title:after{left:12%;bottom:-20px;width:245px;height:82px;opacity:.27;transform:scaleX(-1)}
 .work .section-heading{margin-bottom:55px}
-.work-leaves{position:absolute;left:0;top:48%;width:90px;height:auto;transform:rotate(16deg);opacity:.8;pointer-events:none;z-index:-1}
+
 /* A miniature landscape grows beyond the edges of the green interlude. */
 .landscape{position:relative;isolation:isolate;min-height:550px;padding:75px 18%;margin-top:40px;display:flex;justify-content:center;overflow:visible}
 .landscape-art{position:absolute;inset:-150px 0 -45px;overflow:hidden;pointer-events:none;z-index:-1}
@@ -60,11 +60,11 @@
 .cloud-one{width:240px;top:172px;left:24%}
 .cloud-two{width:190px;top:212px;right:18%;transform:scaleX(-1);opacity:.27}
 .cloud-three{width:165px;bottom:88px;left:47%;opacity:.22}
-.landscape-leaves{position:absolute;bottom:-20px;left:28%;width:135px;transform:rotate(50deg)}
+
 /* The attendants now live in the contact section. */
 .contact{position:relative;padding-top:120px;padding-bottom:60px}
-.contact-musician{position:absolute;left:9%;bottom:68px;width:145px;height:auto;pointer-events:none}
-.contact-leaves{position:absolute;right:6%;top:75px;width:105px;height:auto;transform:rotate(30deg);pointer-events:none}
+
+
 .copy-holder{display:inline-block;position:relative;isolation:isolate}
 .copy-holder button{position:relative;z-index:2;background:var(--cream)}
 .contact-attendant{position:absolute;width:135px;height:auto;left:calc(100% - 65px);top:-25px;z-index:1;pointer-events:none}
@@ -72,7 +72,7 @@
 .contact .social{margin-top:165px;padding-top:20px;border-top:1px solid #b0b99555}
 @media(max-width:760px){
  .physical{margin-top:75px;gap:85px;padding-bottom:50px}.gallery-stage{margin:0 8px}.physical .miniature-gallery img{height:235px;padding:15px}.physical .corner-blossom{width:70px}.physical .corner-top{left:-20px;top:-25px}.physical .corner-bottom{right:-18px;bottom:-25px}.physical article>.eyebrow{margin-top:34px}.physical article>p,.physical article>h3{padding-right:10px}
- .work{padding-bottom:115px}.work:before{top:18px;width:175px;height:65px;opacity:.18}.work:after{top:52px;left:-20px;width:125px;height:48px;opacity:.14}.work-title{padding-bottom:40px}.work-title:after{width:180px;height:62px;left:22%;bottom:-12px}.work .section-heading{margin-bottom:40px}.work-leaves{width:48px;left:-5px;top:62%}
- .landscape{min-height:590px;padding:65px 12% 80px;margin-top:10px}.landscape-art{inset:-100px 0 -28px}.landscape-tree{width:230px;bottom:0}.tree-left{left:-116px;bottom:12px}.tree-right{width:220px;right:-117px;bottom:0}.landscape-content{flex-direction:column;gap:5px;align-items:center;text-align:center}.landscape-content .ornament{width:195px;height:210px}.landscape-content h2{font-size:46px}.landscape-content .eyebrow{font-size:8px;letter-spacing:1.2px}.cloud-one{width:160px;left:2%;top:133px}.cloud-two{width:125px;right:3%;top:183px}.cloud-three{width:130px;left:34%;bottom:115px}.landscape-leaves{width:80px;left:33%;bottom:-4px}
- .contact{padding-top:100px;padding-bottom:40px}.contact-musician{width:100px;left:3%;bottom:73px}.contact-leaves{width:65px;right:25px;top:35px}.contact .social{margin-top:172px}.contact-attendant{width:125px;top:-21px;left:calc(100% - 60px)}
+ .work{padding-bottom:115px}.work:before{top:18px;width:175px;height:65px;opacity:.18}.work:after{top:52px;left:-20px;width:125px;height:48px;opacity:.14}.work-title{padding-bottom:40px}.work-title:after{width:180px;height:62px;left:22%;bottom:-12px}.work .section-heading{margin-bottom:40px}
+ .landscape{min-height:590px;padding:65px 12% 80px;margin-top:10px}.landscape-art{inset:-100px 0 -28px}.landscape-tree{width:230px;bottom:0}.tree-left{left:-116px;bottom:12px}.tree-right{width:220px;right:-117px;bottom:0}.landscape-content{flex-direction:column;gap:5px;align-items:center;text-align:center}.landscape-content .ornament{width:195px;height:210px}.landscape-content h2{font-size:46px}.landscape-content .eyebrow{font-size:8px;letter-spacing:1.2px}.cloud-one{width:160px;left:2%;top:133px}.cloud-two{width:125px;right:3%;top:183px}.cloud-three{width:130px;left:34%;bottom:115px}
+ .contact{padding-top:100px;padding-bottom:40px}.contact .social{margin-top:172px}.contact-attendant{width:125px;top:-21px;left:calc(100% - 60px)}
 }
