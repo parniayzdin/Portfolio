@@ -3,9 +3,6 @@ let paused = reduce.matches;
 reduce.addEventListener('change', () => { paused = reduce.matches; });
 
 document.querySelector('#copy').addEventListener('click', async () => { try { await navigator.clipboard.writeText('pari.yazdinia@gmail.com'); document.querySelector('#copy-status').textContent = 'Email copied.'; } catch { document.querySelector('#copy-status').textContent = 'Please copy the email address above.'; } });
-const painting = document.querySelector('#painting');
-painting.addEventListener('pointermove', e => { if (paused || e.pointerType !== 'mouse') return; const r = painting.getBoundingClientRect(); painting.style.transform = `perspective(1000px) rotateY(${(e.clientX-r.left-r.width/2)/r.width*8}deg) rotateX(${-(e.clientY-r.top-r.height/2)/r.height*6}deg)`; });
-painting.addEventListener('pointerleave', () => { painting.style.transform = ''; });
 async function ornament() {
  const THREE = await import('./assets/vendor/three.module.js');
  const host = document.querySelector('#ornament');
