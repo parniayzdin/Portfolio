@@ -24,3 +24,11 @@
 .featured .project p{margin:18px 0 26px}
 .featured .project small{margin-top:auto;padding-top:17px;border-top:1px solid #c8cdbb;color:#53664f}
 @media(max-width:760px){.featured{gap:18px}.featured .project{padding:25px}.featured .project h3{font-size:31px}}
+
+.miniature-gallery{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:22px;background:#778067 url('assets/persian-garden.png') center/cover;border:1px solid #b49d68;outline:1px solid #c3b07d;outline-offset:5px}
+.miniature-gallery>a{display:block;min-width:0;background:#f3eedf;border:3px solid #f3eedf;box-shadow:0 0 0 1px #bba776;overflow:hidden}
+.miniature-gallery .gallery-main{grid-column:1/-1}
+.physical .miniature-gallery img{display:block;width:100%;height:165px;object-fit:contain;padding:0;background:#e5e7dc;transition:transform .25s}
+.physical .miniature-gallery .gallery-main img{height:235px;padding:14px}
+.miniature-gallery a:hover img{transform:scale(1.035)}
+@media(max-width:760px){.miniature-gallery{padding:17px;gap:10px}.physical .miniature-gallery img{height:135px}.physical .miniature-gallery .gallery-main img{height:210px}}
