@@ -1,10 +1,6 @@
 const reduce = matchMedia('(prefers-reduced-motion: reduce)');
 let paused = reduce.matches;
-const motion = document.querySelector('#motion');
-const syncMotion = () => { motion.textContent = paused ? 'Resume motion' : 'Pause motion'; motion.setAttribute('aria-pressed', String(paused)); document.body.classList.toggle('paused', paused); };
-syncMotion();
-motion.addEventListener('click', () => { paused = !paused; syncMotion(); });
-reduce.addEventListener('change', () => { paused = reduce.matches; syncMotion(); });
+reduce.addEventListener('change', () => { paused = reduce.matches; });
 
 document.querySelector('#copy').addEventListener('click', async () => { try { await navigator.clipboard.writeText('pari.yazdinia@gmail.com'); document.querySelector('#copy-status').textContent = 'Email copied.'; } catch { document.querySelector('#copy-status').textContent = 'Please copy the email address above.'; } });
 const painting = document.querySelector('#painting');
