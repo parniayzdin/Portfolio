@@ -27,9 +27,3 @@ async function ornament() {
  let previous=0;renderer.setAnimationLoop(t=>{const dt=Math.min((t-previous)/1000,.05);previous=t;if(!visible||document.hidden)return;if(!paused&&!dragging)group.rotation.y+=dt*.2;renderer.render(scene,camera);});
 }
 ornament().catch(error=>console.warn('The decorative 3D ornament is unavailable; showing its static fallback.',error));
-
-const birdHost = document.querySelector('#miniature-bird');
-if (birdHost) {
-  import('./miniature-bird.js').then(({createMiniatureBird}) => createMiniatureBird(birdHost, reduce))
-    .catch(error => { birdHost.hidden = true; console.warn('Decorative bird unavailable.', error); });
-}

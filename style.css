@@ -46,3 +46,25 @@
 .physical .miniature-gallery img{background:#e5e7dc}
 .physical .miniature-gallery .gallery-main img{padding:12px}
 @media(max-width:760px){.physical{gap:100px;margin-top:75px}.attendant-project .gallery-stage{margin-right:30px}.physical .miniature-attendant{width:118px;right:-48px;top:calc(100% - 51px)}.attendant-project>.eyebrow,.attendant-project>h3,.attendant-project>p{padding-right:76px}.miniature-bird{width:135px;height:125px;top:-94px;right:4px}.physical .miniature-gallery .gallery-main img{height:190px}}
+
+/* One project image, with manuscript cutouts gathered around its edges. */
+.physical{margin-top:150px}
+.miniature-gallery{grid-template-columns:1fr}
+.physical .miniature-gallery .gallery-main img{height:280px}
+.bird-project .gallery-stage{margin-right:50px}
+.physical .miniature-sticker{position:absolute;display:block;height:auto;padding:0;background:none;z-index:2;pointer-events:none;object-fit:contain;filter:drop-shadow(1px 2px 1px #64553316)}
+.physical .miniature-musician{width:142px;left:-18px;bottom:calc(100% - 8px)}
+.physical .miniature-blossom{width:135px;right:-69px;bottom:-48px;transform:rotate(8deg)}
+.bird-project>.eyebrow,.bird-project>h3,.bird-project>p{padding-right:85px}
+@media(max-width:760px){.physical{margin-top:140px;gap:120px}.bird-project .gallery-stage{margin-right:30px}.physical .miniature-gallery .gallery-main img{height:220px}.physical .miniature-musician{width:125px;left:-15px}.physical .miniature-blossom{width:94px;right:-32px;bottom:-32px}.bird-project>.eyebrow,.bird-project>h3,.bird-project>p{padding-right:55px}}
+
+/* Flat painted silhouettes and airy clouds, rather than patterned panels. */
+.work{position:relative;isolation:isolate}
+.work:before{content:'';position:absolute;right:2%;top:45px;width:min(340px,40%);height:115px;background:url('assets/miniature-cloud.png') center/contain no-repeat;opacity:.2;z-index:-1;pointer-events:none}
+.physical{position:relative;margin-top:210px}
+.physical:before{content:'';position:absolute;left:12%;top:-155px;width:260px;height:95px;background:url('assets/miniature-cloud.png') center/contain no-repeat;opacity:.38;pointer-events:none}
+.gallery-stage{isolation:isolate}
+.miniature-gallery{position:relative;z-index:1}
+.physical .miniature-tree{position:absolute;display:block;width:176px;height:auto;left:24px;top:-170px;padding:0;background:none;z-index:0;pointer-events:none}
+.physical .miniature-blossom{width:125px;right:-60px;bottom:-48px}
+@media(max-width:760px){.physical{margin-top:160px;gap:225px}.physical:before{width:180px;height:65px;left:auto;right:-8px;top:-115px;opacity:.35}.physical .miniature-tree{width:140px;left:26px;top:-160px}.physical .miniature-blossom{width:94px;right:-32px;bottom:-32px}.work:before{top:20px;right:2%;width:190px;height:65px;opacity:.18}}
