@@ -1,5 +1,13 @@
 # Miniature accents
 
+The large trees now frame the green interlude. Project images have bird-and-blossom motifs on opposite corners; people decorate the contact area. Several pale cloud motifs surround the work heading and landscape.
+
+## Leaf sprig
+
+Saved at `assets/miniature-leaves.png`, created with the built-in image generation tool using this prompt:
+
+Use case: stylized-concept. Asset: one transparent leaf sprig for the margins of a Persian miniature-inspired portfolio. Use the supplied tree painting as a stylistic reference only. Create a graceful thin curved twig with seven slender dark sage and muted olive leaves, alternating on the stem, with fine gold veins and delicate brown ink outlines. Flat historical Persian miniature gouache style, lightly aged pigments. Airy sparse silhouette, a slight S curve from lower left to upper right. Leaves only; no flowers, birds, fruit or figures. Genuine transparent alpha background, no parchment rectangle, no sky, no glow, no shadows, no text, no calligraphy, no white outline. Full sprig visible, portrait composition with 5% transparent margin.
+
 ## Additional stickers
 
 Created with the built-in image generation tool, preserving transparent alpha:
