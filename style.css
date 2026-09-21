@@ -25,10 +25,24 @@
 .featured .project small{margin-top:auto;padding-top:17px;border-top:1px solid #c8cdbb;color:#53664f}
 @media(max-width:760px){.featured{gap:18px}.featured .project{padding:25px}.featured .project h3{font-size:31px}}
 
-.miniature-gallery{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:22px;background:#778067 url('assets/persian-garden.png') center/cover;border:1px solid #b49d68;outline:1px solid #c3b07d;outline-offset:5px}
+.miniature-gallery{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0;background:transparent;border:0;outline:0}
 .miniature-gallery>a{display:block;min-width:0;background:#f3eedf;border:3px solid #f3eedf;box-shadow:0 0 0 1px #bba776;overflow:hidden}
 .miniature-gallery .gallery-main{grid-column:1/-1}
 .physical .miniature-gallery img{display:block;width:100%;height:165px;object-fit:contain;padding:0;background:#e5e7dc;transition:transform .25s}
 .physical .miniature-gallery .gallery-main img{height:235px;padding:14px}
 .miniature-gallery a:hover img{transform:scale(1.035)}
-@media(max-width:760px){.miniature-gallery{padding:17px;gap:10px}.physical .miniature-gallery img{height:135px}.physical .miniature-gallery .gallery-main img{height:210px}}
+@media(max-width:760px){.miniature-gallery{padding:0;gap:10px}.physical .miniature-gallery img{height:135px}.physical .miniature-gallery .gallery-main img{height:210px}}
+
+/* Small manuscript characters live at the edges, leaving the work unobstructed. */
+.physical{gap:55px;margin-top:125px}
+.gallery-stage{position:relative}
+.attendant-project .gallery-stage{margin-right:50px}
+.physical .miniature-attendant{position:absolute;width:154px;height:auto;right:-84px;top:calc(100% - 66px);padding:0;background:none;z-index:2;pointer-events:none;filter:drop-shadow(1px 3px 1px #64553320)}
+.attendant-project>.eyebrow,.attendant-project>h3,.attendant-project>p{padding-right:110px}
+.miniature-bird{position:absolute;width:165px;height:150px;right:6px;top:-114px;z-index:3;cursor:grab;touch-action:pan-y}
+.miniature-bird:active{cursor:grabbing}
+.miniature-bird canvas{width:100%;height:100%;display:block}
+.miniature-gallery>a{border:1px solid #c8c9b4;box-shadow:none;background:#e5e7dc}
+.physical .miniature-gallery img{background:#e5e7dc}
+.physical .miniature-gallery .gallery-main img{padding:12px}
+@media(max-width:760px){.physical{gap:100px;margin-top:75px}.attendant-project .gallery-stage{margin-right:30px}.physical .miniature-attendant{width:118px;right:-48px;top:calc(100% - 51px)}.attendant-project>.eyebrow,.attendant-project>h3,.attendant-project>p{padding-right:76px}.miniature-bird{width:135px;height:125px;top:-94px;right:4px}.physical .miniature-gallery .gallery-main img{height:190px}}
