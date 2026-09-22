@@ -52,20 +52,39 @@
 .work-title:after{left:12%;bottom:-20px;width:245px;height:82px;opacity:.27;transform:scaleX(-1)}
 .work .section-heading{margin-bottom:55px}
 
-/* A miniature landscape grows beyond the edges of the green interlude. */
+/* Lowered trees frame the contact area, with roots clipped below its edge. */
 .landscape{position:relative;isolation:isolate;min-height:0;padding:60px 18% 28px;margin-top:0;display:flex;justify-content:center;overflow:visible}
-.landscape-art{position:absolute;inset:-150px 0 0;overflow:hidden;pointer-events:none;z-index:-1}
-.landscape-tree{position:absolute;width:clamp(230px,26vw,330px);height:auto;bottom:20px}
+.landscape-art{position:absolute;inset:-45px 0 0;overflow:hidden;pointer-events:none;z-index:-1}
+.landscape-tree{position:absolute;width:clamp(230px,26vw,330px);height:auto;bottom:-110px}
 .tree-left{left:-75px}
-.tree-right{right:-105px;width:clamp(220px,25vw,315px);transform:scaleX(-1);bottom:0}
+.tree-right{right:-105px;width:clamp(220px,25vw,315px);transform:scaleX(-1);bottom:-110px}
 .landscape-content{position:relative;display:flex;align-items:center;gap:36px;z-index:1}
 .landscape-content .ornament{width:230px;height:260px}
 .landscape-content h2{font-size:clamp(48px,4.6vw,68px);white-space:nowrap}
 .landscape-content .eyebrow{font-size:9px;letter-spacing:2px;color:#e0c58c}
-.landscape-cloud{position:absolute;height:auto;opacity:.38}
-.cloud-one{width:240px;top:172px;left:24%}
-.cloud-two{width:190px;top:212px;right:18%;transform:scaleX(-1);opacity:.27}
-.cloud-three{width:165px;bottom:18px;left:47%;opacity:.22}
+
+.landscape-bird{position:absolute;display:block;width:clamp(40px,5vw,66px);pointer-events:none;--flight-x:100px;--flight-y:-30px}
+.landscape-bird img{display:block;width:100%;height:auto}
+.bird-left{left:7%;top:24%}
+.bird-right{right:6%;top:31%;width:clamp(38px,4.6vw,60px);--flight-x:-100px;--flight-y:-38px}
+.bird-right img{transform:scaleX(-1)}
+.bird-low{left:2%;top:67%;width:45px;--flight-x:85px;--flight-y:-90px}
+@keyframes bird-flight{
+  0%{translate:0 12px;rotate:-6deg;opacity:0}
+  12%,82%{opacity:.95}
+  50%{translate:calc(var(--flight-x) / 2) calc(var(--flight-y) / 2);rotate:3deg}
+  100%{translate:var(--flight-x) var(--flight-y);rotate:-4deg;opacity:0}
+}
+@media(prefers-reduced-motion:no-preference){
+ .bird-left{animation:bird-flight 16s linear -3s infinite}
+ .bird-right{animation:bird-flight 19s linear -11s infinite}
+ .bird-low{animation:bird-flight 21s linear -7s infinite}
+}
+@media(max-width:760px){
+ .bird-left{left:3%;top:27%;--flight-x:48px;--flight-y:-24px}
+ .bird-right{right:3%;top:40%;--flight-x:-45px;--flight-y:-38px}
+ .bird-low{display:none}
+}
 
 /* Independent translation preserves the mirrored miniature cloud shapes. */
 @keyframes cloud-drift{
@@ -73,13 +92,10 @@
   50%{translate:var(--cloud-x,14px) var(--cloud-y,-5px)}
 }
 @media(prefers-reduced-motion:no-preference){
- .work:before,.work:after,.work-title:after,.landscape-cloud{animation:cloud-drift 28s ease-in-out infinite}
+ .work:before,.work:after,.work-title:after{animation:cloud-drift 28s ease-in-out infinite}
  .work:before{--cloud-x:-16px;animation-duration:30s;animation-delay:-6s}
  .work:after{--cloud-x:12px;--cloud-y:4px;animation-duration:26s;animation-delay:-15s}
- .work-title:after{--cloud-x:10px;--cloud-y:-3px;animation-duration:24s;animation-delay:-4s}
- .cloud-one{--cloud-x:18px;animation-duration:32s;animation-delay:-10s}
- .cloud-two{--cloud-x:-14px;--cloud-y:4px;animation-duration:29s;animation-delay:-19s}
- .cloud-three{--cloud-x:12px;--cloud-y:-4px;animation-duration:27s;animation-delay:-2s}
+ .work-title:after{--cloud-x:18px;--cloud-y:-5px;animation-duration:22s;animation-delay:-4s}
 }
 
 /* Contact links share the painted landscape. */
@@ -96,7 +112,7 @@
 @media(max-width:760px){
  .physical-heading{margin:60px 0 28px} .physical{margin-top:0;gap:85px;padding-bottom:0}.gallery-stage{margin:0 8px}.physical .miniature-gallery img{height:235px;padding:15px}.physical article>.eyebrow{margin-top:34px}.physical article>p,.physical article>h3{padding-right:10px}
  .work{padding-bottom:44px}.work:before{top:18px;width:175px;height:65px;opacity:.18}.work:after{top:52px;left:-20px;width:125px;height:48px;opacity:.14}.work-title{padding-bottom:40px}.work-title:after{width:180px;height:62px;left:22%;bottom:-12px}.work .section-heading{margin-bottom:40px}
- .landscape{min-height:0;padding:40px 12% 24px;margin-top:0}.landscape-art{inset:-100px 0 0}.landscape-tree{width:230px;bottom:0}.tree-left{left:-116px;bottom:12px}.tree-right{width:220px;right:-117px;bottom:0}.landscape-content{flex-direction:column;gap:5px;align-items:center;text-align:center}.landscape-content .ornament{width:195px;height:210px}.landscape-content h2{font-size:46px}.landscape-content .eyebrow{font-size:8px;letter-spacing:1.2px}.cloud-one{width:160px;left:2%;top:133px}.cloud-two{width:125px;right:3%;top:183px}.cloud-three{width:110px;left:8%;bottom:18px}
+ .landscape{min-height:0;padding:40px 12% 24px;margin-top:0}.landscape-art{inset:0}.landscape-tree{width:230px;bottom:-72px}.tree-left{left:-116px;bottom:-72px}.tree-right{width:220px;right:-117px;bottom:-70px}.landscape-content{flex-direction:column;gap:5px;align-items:center;text-align:center}.landscape-content .ornament{width:195px;height:210px}.landscape-content h2{font-size:46px}.landscape-content .eyebrow{font-size:8px;letter-spacing:1.2px}
  .connection-email{font-size:15px;margin:21px 0 18px}.connection-links{justify-content:center;gap:18px}
 }
 
