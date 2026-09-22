@@ -66,24 +66,30 @@
 .landscape-bird{position:absolute;display:block;width:clamp(40px,5vw,66px);pointer-events:none;--flight-x:100px;--flight-y:-30px}
 .landscape-bird img{display:block;width:100%;height:auto}
 .bird-left{left:7%;top:24%}
-.bird-right{right:6%;top:31%;width:clamp(38px,4.6vw,60px);--flight-x:-100px;--flight-y:-38px}
-.bird-right img{transform:scaleX(-1)}
+.bird-right{right:6%;top:31%;width:clamp(38px,4.6vw,60px);--flight-x:-100px;--flight-y:45px}
+.bird-right img,.bird-bottom-left img{transform:scaleX(-1)}
 .bird-low{left:2%;top:67%;width:45px;--flight-x:85px;--flight-y:-90px}
+.bird-bottom-left{left:14%;bottom:10%;width:48px;--flight-x:-95px;--flight-y:20px}
+.bird-bottom-right{right:12%;bottom:6%;width:46px;--flight-x:80px;--flight-y:-65px}
 @keyframes bird-flight{
   0%{translate:0 12px;rotate:-6deg;opacity:0}
   12%,82%{opacity:.95}
-  50%{translate:calc(var(--flight-x) / 2) calc(var(--flight-y) / 2);rotate:3deg}
+  50%{translate:calc(var(--flight-x) / 2) calc(var(--flight-y) / 2 - 12px);rotate:3deg}
   100%{translate:var(--flight-x) var(--flight-y);rotate:-4deg;opacity:0}
 }
 @media(prefers-reduced-motion:no-preference){
  .bird-left{animation:bird-flight 16s linear -3s infinite}
  .bird-right{animation:bird-flight 19s linear -11s infinite}
  .bird-low{animation:bird-flight 21s linear -7s infinite}
+ .bird-bottom-left{animation:bird-flight 18s linear -8s infinite}
+ .bird-bottom-right{animation:bird-flight 23s linear -15s infinite}
 }
 @media(max-width:760px){
  .bird-left{left:3%;top:27%;--flight-x:48px;--flight-y:-24px}
- .bird-right{right:3%;top:40%;--flight-x:-45px;--flight-y:-38px}
+ .bird-right{right:3%;top:40%;--flight-x:-45px;--flight-y:32px}
  .bird-low{display:none}
+ .bird-bottom-left{left:9%;bottom:10%;width:34px;--flight-x:-24px;--flight-y:18px}
+ .bird-bottom-right{right:8%;bottom:6%;width:34px;--flight-x:24px;--flight-y:-42px}
 }
 
 /* Independent translation preserves the mirrored miniature cloud shapes. */

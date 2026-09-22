@@ -1,6 +1,6 @@
 # Flying miniature birds
 
-Created with the built-in image generation tool. Saved asset: `assets/miniature-flying-bird.png`. The existing painted tree cutout was used as a style reference. CSS animates three copies around the trees; reduced-motion preferences leave the artwork still.
+Created with the built-in image generation tool. Saved asset: `assets/miniature-flying-bird.png`. The existing painted tree cutout was used as a style reference. CSS animates five copies around the trees, including two near the bottom, along varied leftward, rightward, rising, and descending paths. Leftward birds are mirrored to face their direction of travel; reduced-motion preferences leave the artwork still.
 
 ## Prompt
 
