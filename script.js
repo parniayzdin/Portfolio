@@ -30,3 +30,6 @@ ornament().catch(error=>console.warn('The decorative 3D ornament is unavailable;
 
 import { startLeafTrail } from './leaf-trail.js';
 startLeafTrail(reduce);
+
+import { startProjectRopes } from './project-ropes.js';
+startProjectRopes(reduce);
