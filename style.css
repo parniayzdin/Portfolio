@@ -14,6 +14,14 @@
 .personal-photo{margin:0;position:relative;padding:9px;border:1px solid #acaa78;border-radius:220px 220px 4px 4px}
 .personal-photo img{display:block;width:100%;height:440px;object-fit:cover;object-position:center;border-radius:210px 210px 0 0;filter:saturate(.85)}
 .photo-flower{position:absolute;bottom:-23px;left:-22px;width:65px;height:65px;display:grid;place-items:center;border-radius:50%;background:#f3eedf;border:1px solid #b6a369;color:#8e986d;font-size:40px}
+.portrait-stars{position:absolute;inset:0;pointer-events:none}
+.portrait-star{position:absolute;color:#aa8b42;font-family:Georgia,serif;font-weight:400;line-height:1;text-shadow:0 1px 5px #f3eedfcc}
+.star-one{left:-20px;top:18%;font-size:33px;transform:rotate(-10deg)}
+.star-two{right:24%;top:-21px;font-size:29px}
+.star-three{right:-24px;top:34%;font-size:36px;transform:rotate(12deg)}
+.star-four{right:-14px;bottom:14%;font-size:26px}
+.star-five{left:65%;bottom:-16px;font-size:22px}
+.star-six{left:-12px;top:53%;font-size:15px}
 @media(max-width:760px){.personal-hero{padding:35px 6%}.personal-card{padding:35px 8%;grid-template-columns:1fr;gap:32px}.personal-copy h1{font-size:59px;margin-bottom:24px}.personal-copy>p:not(.eyebrow){font-size:14px;line-height:1.8}.personal-photo{width:100%;max-width:310px;justify-self:center}.personal-photo img{height:330px}.photo-flower{height:52px;width:52px;left:-15px;font-size:32px}}
 
 .featured{gap:22px}
@@ -46,7 +54,7 @@
 
 /* A miniature landscape grows beyond the edges of the green interlude. */
 .landscape{position:relative;isolation:isolate;min-height:550px;padding:75px 18%;margin-top:0;display:flex;justify-content:center;overflow:visible}
-.landscape-art{position:absolute;inset:-150px 0 -45px;overflow:hidden;pointer-events:none;z-index:-1}
+.landscape-art{position:absolute;inset:-150px 0 0;overflow:hidden;pointer-events:none;z-index:-1}
 .landscape-tree{position:absolute;width:clamp(280px,32vw,440px);height:auto;bottom:20px}
 .tree-left{left:-75px}
 .tree-right{right:-105px;width:clamp(260px,30vw,420px);transform:scaleX(-1);bottom:0}
@@ -59,20 +67,21 @@
 .cloud-two{width:190px;top:212px;right:18%;transform:scaleX(-1);opacity:.27}
 .cloud-three{width:165px;bottom:88px;left:47%;opacity:.22}
 
-/* The attendants now live in the contact section. */
-.contact{position:relative;padding-top:120px;padding-bottom:60px}
+/* Contact links share the painted landscape. */
+.connection-copy{min-width:0}
+.connection-email{display:inline-block;font-size:17px;color:var(--cream);margin:24px 0 20px;border-bottom:1px solid #e7d9b466;padding-bottom:4px}
+.connection-links{display:flex;align-items:center;gap:22px;flex-wrap:wrap;font-size:13px}
+.connection-links a{padding:6px 0}
+.connection-links a:hover,.connection-email:hover{color:#ead59c}
+.connection-links button{color:var(--cream);border-color:#e7d9b488}
+.connection-links button:hover{background:#f3eedf18}
+.connection-copy #copy-status{color:#efe5c9;margin-top:12px}
 
-
-.copy-holder{display:inline-block;position:relative;isolation:isolate}
-.copy-holder button{position:relative;z-index:2;background:var(--cream)}
-.contact-attendant{position:absolute;width:135px;height:auto;left:calc(100% - 65px);top:-25px;z-index:1;pointer-events:none}
-.contact #copy-status{position:relative;margin-top:12px;z-index:2}
-.contact .social{margin-top:165px;padding-top:20px;border-top:1px solid #b0b99555}
 @media(max-width:760px){
  .physical-heading{margin:60px 0 28px} .physical{margin-top:0;gap:85px;padding-bottom:0}.gallery-stage{margin:0 8px}.physical .miniature-gallery img{height:235px;padding:15px}.physical article>.eyebrow{margin-top:34px}.physical article>p,.physical article>h3{padding-right:10px}
  .work{padding-bottom:44px}.work:before{top:18px;width:175px;height:65px;opacity:.18}.work:after{top:52px;left:-20px;width:125px;height:48px;opacity:.14}.work-title{padding-bottom:40px}.work-title:after{width:180px;height:62px;left:22%;bottom:-12px}.work .section-heading{margin-bottom:40px}
- .landscape{min-height:590px;padding:65px 12% 80px;margin-top:0}.landscape-art{inset:-100px 0 -28px}.landscape-tree{width:230px;bottom:0}.tree-left{left:-116px;bottom:12px}.tree-right{width:220px;right:-117px;bottom:0}.landscape-content{flex-direction:column;gap:5px;align-items:center;text-align:center}.landscape-content .ornament{width:195px;height:210px}.landscape-content h2{font-size:46px}.landscape-content .eyebrow{font-size:8px;letter-spacing:1.2px}.cloud-one{width:160px;left:2%;top:133px}.cloud-two{width:125px;right:3%;top:183px}.cloud-three{width:130px;left:34%;bottom:115px}
- .contact{padding-top:100px;padding-bottom:40px}.contact .social{margin-top:172px}.contact-attendant{width:125px;top:-21px;left:calc(100% - 60px)}
+ .landscape{min-height:590px;padding:65px 12% 80px;margin-top:0}.landscape-art{inset:-100px 0 0}.landscape-tree{width:230px;bottom:0}.tree-left{left:-116px;bottom:12px}.tree-right{width:220px;right:-117px;bottom:0}.landscape-content{flex-direction:column;gap:5px;align-items:center;text-align:center}.landscape-content .ornament{width:195px;height:210px}.landscape-content h2{font-size:46px}.landscape-content .eyebrow{font-size:8px;letter-spacing:1.2px}.cloud-one{width:160px;left:2%;top:133px}.cloud-two{width:125px;right:3%;top:183px}.cloud-three{width:130px;left:34%;bottom:115px}
+ .connection-email{font-size:15px;margin:21px 0 18px}.connection-links{justify-content:center;gap:18px}
 }
 
 .cursor-leaves{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:30}
