@@ -9,15 +9,6 @@
 .personal-card{max-width:1180px;margin:auto;display:grid;grid-template-columns:1.15fr 1fr;align-items:center;gap:8%;padding:60px 6%;background:linear-gradient(110deg,#f3eedff7,#edf0e0f0);border:1px solid #c7b17b;outline:1px solid #efe4c3;outline-offset:8px;box-shadow:0 18px 60px #233d322b}
 .personal-copy .eyebrow{color:#5e7058;letter-spacing:3px;margin-bottom:20px}
 .personal-copy h1{font-size:clamp(55px,5.6vw,84px);letter-spacing:-1.5px;margin-bottom:30px}
-.personal-intro{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:26px}
-.personal-copy .personal-intro h1{min-width:0;margin-bottom:0}
-.intro-character{position:relative;flex:0 0 clamp(76px,8vw,112px);overflow:hidden;background:#000;border:1px solid #b79a5b;border-radius:60px 60px 12px 12px;box-shadow:0 5px 16px #203d3318}
-.intro-character img{display:block;width:100%;height:auto}
-.character-toggle{position:absolute;bottom:5px;left:50%;transform:translateX(-50%);padding:3px 10px;border-color:#c4a76699;background:#203d33e6;color:#f3eedf;font-size:10px;line-height:1.5}
-.character-toggle:hover{background:#496653}
-.character-toggle:focus-visible{outline-offset:-2px}
-@media(max-width:1000px) and (min-width:761px){.personal-intro{gap:12px}.personal-copy .personal-intro h1{font-size:48px}.intro-character{flex-basis:76px}}
-@media(max-width:760px){.personal-intro{gap:16px;margin-bottom:24px}.personal-copy .personal-intro h1{font-size:clamp(40px,9.6vw,59px);margin-bottom:0}.intro-character{flex-basis:80px}}
 .personal-copy>p:not(.eyebrow){font-size:15px;line-height:1.85;color:#526451;margin:0;max-width:490px}
 .personal-copy>p:last-child{margin-bottom:0}
 .personal-photo{margin:0;position:relative;padding:9px;border:1px solid #acaa78;border-radius:220px 220px 4px 4px}
