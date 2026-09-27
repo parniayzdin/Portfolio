@@ -2,6 +2,22 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)');
 let paused = reduce.matches;
 reduce.addEventListener('change', () => { paused = reduce.matches; });
 
+const introCharacter = document.querySelector('#intro-character');
+const characterToggle = document.querySelector('.character-toggle');
+if (introCharacter && characterToggle) {
+ let characterPlaying = false;
+ const setCharacterPlayback = playing => {
+  characterPlaying = playing;
+  introCharacter.src = playing ? 'assets/persian-girl-looking-around.gif' : 'assets/persian-girl-still.png';
+  characterToggle.textContent = playing ? 'Pause' : 'Play';
+  characterToggle.setAttribute('aria-label', playing ? 'Pause character animation' : 'Play character animation');
+ };
+ characterToggle.hidden = false;
+ setCharacterPlayback(!reduce.matches);
+ characterToggle.addEventListener('click', () => setCharacterPlayback(!characterPlaying));
+ reduce.addEventListener('change', () => setCharacterPlayback(!reduce.matches));
+}
+
 document.querySelector('#copy').addEventListener('click', async () => { try { await navigator.clipboard.writeText('pari.yazdinia@gmail.com'); document.querySelector('#copy-status').textContent = 'Email copied.'; } catch { document.querySelector('#copy-status').textContent = 'Please copy the email address above.'; } });
 async function ornament() {
  const THREE = await import('./assets/vendor/three.module.js');
