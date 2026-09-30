@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="220" viewBox="0 0 180 220">
+  <defs>
+    <g id="sprig">
+      <path d="M0 53C-2 33 6 20 5 0M1 38L-11 28M3 26L16 18" fill="none" stroke="#858958" stroke-width="1.5"/>
+      <path d="M-10 28Q-24 25-19 16Q-7 17-10 28M4 35Q20 33 17 23Q5 24 4 35" fill="#89915f"/>
+      <g fill="#7897a4"><ellipse cx="4" cy="-4" rx="3.5" ry="5"/><ellipse cx="10" cy="0" rx="5" ry="3.5"/><ellipse cx="7" cy="6" rx="3.5" ry="5"/><ellipse cx="0" cy="5" rx="4.8" ry="3.7"/><ellipse cx="-2" cy="-1" rx="4.5" ry="3.5"/></g>
+      <circle cx="4" cy="2" r="2" fill="#c4ae75"/>
+      <g transform="translate(15 15) scale(.65)" fill="#88a1ae"><ellipse cy="-5" rx="3" ry="5"/><ellipse cx="5" rx="5" ry="3"/><ellipse cy="5" rx="3" ry="5"/><ellipse cx="-5" rx="5" ry="3"/><circle r="2" fill="#bdab76"/></g>
+    </g>
+  </defs>
+  <use href="#sprig" transform="translate(42 28) rotate(-18)"/>
+  <use href="#sprig" transform="translate(140 133) rotate(24)"/>
+</svg>
