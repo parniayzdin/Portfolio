@@ -3,7 +3,7 @@
 .wordmark, h1, .off-screen p>span, .gallery-note, .sleep-mark, .projects-heading h2, .projects-heading>p:last-child, .work-entry h3, .project-footnote>span { font-family: var(--font-display); font-style: normal; font-optical-sizing: auto; }
 h1 { font-size: clamp(64px, 6.8vw, 100px); font-weight: 500; line-height: 1.03; letter-spacing: -.045em; }
 h1 em { font-style: normal; font-weight: inherit; padding-bottom: 0; }
-.off-screen p>span { font-size: 21px; }
+.off-screen p>span { font-size: 23px; }
 .projects-heading>p:last-child { font-size: 17px; }
 .room { overflow: clip; }
 html.lenis { scroll-behavior: auto; }
@@ -17,13 +17,14 @@ nav a { position: relative; white-space: nowrap; }
 .current-link::after { display: none; }
 nav a[aria-current="page"] { color: #e0c491; }
 nav a[aria-current="page"]::after { display: block; content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 1px; background: #bc9f6d; }
-.about-room { min-height: calc(100svh - 78px); padding-top: 28px; padding-bottom: 35px; }
+.about-room { position: relative; min-height: 0; padding-top: 28px; padding-bottom: 12px; }
 .about-copy { padding-block: 12px; }
-.biography { font-size: clamp(15px, 1.5vw, 16px); }
-.off-screen p, .social-links { font-size: 15px; }
+.biography { font-size: clamp(16px, 1.55vw, 18px); line-height: 1.85; }
+.off-screen p { font-size: 17px; }
+.social-links { font-size: 16px; }
 .gallery-wrap { transform: translateY(var(--gallery-drift, 0px)); }
 .gallery-wall { aspect-ratio: 1 / 1.13; }
-.portrait-parnia { width: 39%; left: 30.5%; top: 33.65%; --tilt: -2deg; z-index: 2; }
+.portrait-parnia { width: 43%; left: 28.5%; top: 31.44%; --tilt: -2deg; z-index: 2; }
 .portrait-window { position: absolute; inset: 10.9% 14.6% 11.3%; overflow: hidden; background: #c7bea4; }
 .portrait-window img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; filter: none; }
 .portrait-parnia .portrait-frame { position: relative; width: 100%; height: auto; filter: drop-shadow(5px 10px 6px #0008); pointer-events: none; }
@@ -34,6 +35,10 @@ nav a[aria-current="page"]::after { display: block; content: ''; position: absol
 .portrait-persian { width: 25%; right: 1%; top: 59.9%; }
 .spark-one { left: 30%; top: 16%; font-size: 24px; }
 .spark-two { right: 42%; bottom: 7%; font-size: 23px; }
+.spark-three { left: 17%; top: 44%; font-size: 18px; }
+.spark-four { right: 28%; top: 14%; font-size: 20px; }
+.spark-five { right: 9%; top: 47%; font-size: 16px; }
+.about-spark { left: 2%; top: 32%; font-size: 19px; pointer-events: none; }
 .cat-perch { position: relative; width: min(100%, 365px); height: 172px; margin-top: 12px; }
 .perch-cat { position: absolute; z-index: 2; left: 0; top: 0; width: 128px; height: 128px; margin: -108px 0 0 -64px; padding: 0; background: none; border: 0; cursor: pointer; touch-action: manipulation; }
 .perch-cat canvas { display: block; width: 128px; height: 128px; }
@@ -48,8 +53,8 @@ nav a[aria-current="page"]::after { display: block; content: ''; position: absol
 .section-rule span { height: 1px; flex: 1; background: linear-gradient(90deg, transparent, #b69a6045); }
 .section-rule span:last-child { transform: rotate(180deg); }
 .section-rule i { font: normal 25px Georgia, serif; }
-.journey-section { position: relative; padding: 18px 0 92px; background: linear-gradient(transparent, #142019ba 17%, #17221ac9 78%, transparent); }
-.chapter-heading { text-align: center; padding: 75px 20px 68px; }
+.journey-section { position: relative; padding: 0 0 92px; background: linear-gradient(transparent, #142019ba 17%, #17221ac9 78%, transparent); }
+.chapter-heading { text-align: center; padding: 32px 20px 40px; }
 .chapter-heading .eyebrow { justify-content: center; margin-bottom: 22px; letter-spacing: 3px; }
 .chapter-heading h2, .contact-room h2 { font: 500 clamp(44px, 5.3vw, 76px)/1.14 var(--font-display); letter-spacing: -.035em; margin: 0; text-wrap: balance; }
 .chapter-heading h2 em, .contact-room h2 em { color: #d0bc95; font-style: normal; font-weight: inherit; }
@@ -77,7 +82,7 @@ nav a[aria-current="page"]::after { display: block; content: ''; position: absol
 .experience-card>p { max-width: 530px; margin: 0; padding-right: 14px; font-size: 15px; line-height: 1.9; }
 .experience-focus { margin-top: 25px; padding-top: 20px; border-top: 1px solid #9e96743b; }
 .experience-focus ul { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; list-style: none; }
-.experience-focus li { padding: 5px 10px; border: 1px solid #a29e7b40; border-radius: 20px; color: #5d6c55; font-size: 9px; line-height: 1.3; background: #b1b29712; }
+.experience-focus li { padding: 7px 13px; border: 1px solid #a29e7b40; border-radius: 20px; color: #5d6c55; font-size: 12px; line-height: 1.4; background: #b1b29712; }
 .projects-room { padding: 0 0 80px; }
 .projects-layout { display: block; width: min(86%, 1060px); margin: 104px auto 0; }
 .project-frame { border-radius: 3px; }
@@ -129,11 +134,11 @@ nav a[aria-current="page"]::after { display: block; content: ''; position: absol
   h1 { font-size: clamp(62px, 12vw, 84px); }
   nav { gap: 17px; font-size: 11px; }
   nav .hello-link { display: none; }
-  .about-room { padding-top: 36px; gap: 42px; }
+  .about-room { padding-top: 36px; gap: 28px; }
   .about-copy { padding: 0; }
   .cat-perch { margin-top: 7px; }
-  .journey-section { padding-top: 22px; padding-bottom: 60px; }
-  .chapter-heading { padding: 55px 22px 44px; }
+  .journey-section { padding-top: 0; padding-bottom: 60px; }
+  .chapter-heading { padding: 28px 22px 32px; }
   .chapter-heading h2 { font-size: clamp(30px, 8.4vw, 58px); }
   .chapter-heading .eyebrow { font-size: 9px; }
   .journey-timeline { width: 90%; }
@@ -149,7 +154,7 @@ nav a[aria-current="page"]::after { display: block; content: ''; position: absol
   .role-heading p { font-size: 7px; }
   .experience-card { padding: 26px 23px 23px; border-radius: 15px; }
   .experience-card>p { font-size: 13px; padding-right: 20px; }
-  .experience-focus li { font-size: 8px; }
+  .experience-focus li { font-size: 11px; }
   .projects-layout { width: calc(100% - 30px); margin-top: 79px; }
   .frame-paper { padding: 26px 16px; }
   .projects-heading { padding: 31px 0 25px; min-height: 0; }
